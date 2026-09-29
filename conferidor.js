@@ -169,7 +169,8 @@
       removidos: esquema['x-removidos'] || {},
       linha: regras.regras_linha.map(function (r) { return { codigo: r.codigo, rx: rx(r.regex) }; }),
       cerca: rx(regras.cerca), notaUso: rx(regras.nota_uso, 'gu'), notaDef: rx(regras.nota_def),
-      ancorasFim: rx(regras.ancoras_fim), etiquetas: regras.etiquetas_idioma
+      ancorasFim: rx(regras.ancoras_fim), etiquetas: regras.etiquetas_idioma,
+      codigo: regras.codigo ? rx(regras.codigo, 'gu') : null, ignoraCodigo: regras.ignora_codigo || []
     };
   }
 
@@ -235,11 +236,14 @@
         } else dentroCerca = null;
         return;
       }
+      // D24: entre crases é código citado numa nota editorial, não vazamento
+      var semCodigo = ctx.codigo ? linha.replace(ctx.codigo, '') : linha;
       ctx.linha.forEach(function (r) {
-        var mm = r.rx.exec(linha);
+        var alvo = ctx.ignoraCodigo.indexOf(r.codigo) >= 0 ? semCodigo : linha;
+        var mm = r.rx.exec(alvo);
         if (mm) {
           var ini = Math.max(0, mm.index - 30);
-          achar(r.codigo, i, linha.slice(ini, mm.index + mm[0].length + 30).trim());
+          achar(r.codigo, i, alvo.slice(ini, mm.index + mm[0].length + 30).trim());
         }
       });
       var d = ctx.notaDef.exec(linha);
