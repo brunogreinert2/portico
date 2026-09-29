@@ -1,0 +1,47 @@
+{
+ "_gerado_por": "portico/gerar.py, das fichas locais marcadas public — nao editar",
+ "fichas": [
+  {
+   "frente": "Encheirídion — tradução para o português",
+   "estado": "em curso",
+   "tocado_em": "2026-09-29",
+   "nota": "Tradução do grego para o português, capítulo a capítulo. Onze capítulos prontos."
+  },
+  {
+   "frente": "Fila de entrada no corpus (pré-socráticos, Isócrates, Padres Apostólicos)",
+   "estado": "parado",
+   "tocado_em": "2026-09-29",
+   "nota": "Fragmentos pré-socráticos tirados de Sexto Empírico e Simplício, Isócrates e os Padres Apostólicos, esperando o formato novo."
+  },
+  {
+   "frente": "Marcgrave — Historia Naturalis Brasiliae (1648)",
+   "estado": "parado",
+   "tocado_em": "2026-09-16",
+   "nota": "Historia Naturalis Brasiliae (1648): texto transcrito e corrigido; faltam as gravuras, já recortadas, entrarem no lugar."
+  },
+  {
+   "frente": "Servidor MCP do Pedra Angular (Render)",
+   "estado": "parado",
+   "tocado_em": "2026-07-21",
+   "nota": "O servidor que deixa qualquer IA buscar e ler no acervo: diagnosticar as falhas intermitentes."
+  },
+  {
+   "frente": "Pórtico público, com diário de bordo",
+   "estado": "em curso",
+   "tocado_em": "2026-09-29",
+   "nota": "Este Pórtico, aberto ao público, com o diário de bordo."
+  },
+  {
+   "frente": "Saneamento do corpus (URN, metadados, conversor TEI)",
+   "estado": "em curso",
+   "tocado_em": "2026-09-29",
+   "nota": "Padronizando as 1.109 obras do acervo: identidade por URN, dados completos e um portão que confere cada arquivo que entra."
+  },
+  {
+   "frente": "Silvestre Pinheiro Ferreira — Manual do Cidadão e Categorias",
+   "estado": "parado",
+   "tocado_em": "2026-09-29",
+   "nota": "Os três tomos do Manual do Cidadão em um Governo Representativo (tomo 3 em reconhecimento de texto) e a tradução das Categorias de Aristóteles, de 1814."
+  }
+ ]
+}

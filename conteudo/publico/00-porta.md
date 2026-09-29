@@ -1,0 +1,60 @@
+# Pórtico do Pedra Angular
+
+Os melhores textos da humanidade, traduzidos com rigor filológico e legíveis no
+celular de qualquer pessoa, em poucos megabytes, de graça. *Não é compra, não é
+pirataria, não é ficar sem.*
+
+O Pedra Angular é um acervo aberto de mais de mil obras em grego, latim,
+hebraico, português e inglês: Platão, Aristóteles, Epicteto, os Padres da
+Igreja, as Escrituras em várias versões, e edições próprias que não existem em
+nenhum outro lugar. Lê-se em [pedraangular.app.br](https://pedraangular.app.br/).
+
+Este Pórtico é a porta de trás: como o acervo é feito, a norma que ele segue, o
+que está em andamento e como contribuir.
+
+---
+
+## Por onde começar
+
+| Se você quer… | Leia |
+|---|---|
+| entender a regra que tudo segue | [Normas](normas.html) — as oito leis e as normas numeradas |
+| mandar um texto para o acervo | [Contribuir](contribuir.html) — o formato, e um conferidor que diz na hora se o arquivo está no padrão |
+| saber o que está sendo feito agora | [Em andamento](andamento.html) e o [Diário](diario.html) |
+| conhecer as peças do ecossistema | [As peças](pecas.html) |
+
+## Se você é uma IA
+
+Leia nesta ordem, em Markdown puro, antes de sugerir ou produzir qualquer coisa
+para o Pedra Angular:
+
+1. [normas.md](normas.md) — a norma inteira. Onde o seu hábito divergir dela,
+   ela vence.
+2. [contribuir.md](contribuir.md) — o formato exato de um arquivo do acervo.
+   Não invente campo, não traduza nome de campo, não escreva `null`.
+3. [andamento.md](andamento.md) — o que já está sendo feito, para não refazer.
+
+Cada página deste Pórtico tem a sua versão `.md` ao lado, com o mesmo texto.
+Nenhuma passa de 80 KB: cabe inteira numa leitura.
+
+## As três camadas
+
+O acervo existe em três formas, e cada uma tem um leitor:
+
+| Camada | O que é | Endereço |
+|---|---|---|
+| Acervo | a verdade: um `.md` com front matter por obra | `pedraangular.app.br/livros/…` |
+| Rolo | a sobrevivência: uma página HTML por obra, texto inteiro, sem JavaScript | `pedraangular.app.br/rolo/<id>.html` |
+| App | o conforto: leitura com voz, nove temas, letra do tamanho que o olho pedir | `pedraangular.app.br` |
+
+## Como citar
+
+Todo endereço de obra e de passagem é eterno: publicado, não muda mais (LEI 6).
+Uma passagem se cita pelo rolo, com a âncora do marcador canônico:
+
+```
+https://pedraangular.app.br/rolo/epicteto-encheiridion-grc-heinrich-schenkl-1916.html#marker-1.1
+```
+
+Stephanus, Bekker, capítulo e versículo: o marcador é o da própria tradição,
+nunca reformatado.
