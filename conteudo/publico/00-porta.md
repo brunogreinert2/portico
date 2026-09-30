@@ -53,9 +53,13 @@ endereço se monta com ele:
   [https://pedraangular.app.br/rolo/platao-sophist-grc-john-burnet-1905.html#marker-216a](https://pedraangular.app.br/rolo/platao-sophist-grc-john-burnet-1905.html#marker-216a)
   (Platão, Sofista 216a)
 
-Uma ressalva honesta: parte das obras é longa (a página inteira de Mateus tem
-mais de 200 KB de texto). Se a sua ferramenta cortar a leitura, a âncora da
-passagem pode ficar depois do corte. Páginas por capítulo estão a caminho.
+Obra longa (a página inteira de Mateus tem mais de 200 KB de texto) também sai
+em partes, uma por capítulo, livro ou seção, cada uma cabendo numa leitura — com
+as mesmas âncoras. Se a sua ferramenta cortar a página inteira, use a parte:
+
+- a lista das partes de uma obra: `https://pedraangular.app.br/rolo/<id>/`
+- uma parte: [https://pedraangular.app.br/rolo/biblia-40-mateus-grc-sblgnt-2010/23.html#anchor-mt-23-23](https://pedraangular.app.br/rolo/biblia-40-mateus-grc-sblgnt-2010/23.html#anchor-mt-23-23)
+  (Mateus 23, com o versículo 23)
 
 ## As três camadas
 
