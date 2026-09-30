@@ -94,3 +94,8 @@ muda nunca. A URN leva direto à obra e à passagem:
   (Mateus 23:23, Almeida 1911)
 - todas as URNs, em listas legíveis sem JavaScript:
   [https://pedraangular.app.br/urn/](https://pedraangular.app.br/urn/)
+
+O acervo inteiro tem versão numerada e DOI, e cada versão fica guardada no
+Zenodo (CERN), onde se baixa o acervo completo num arquivo só:
+[https://doi.org/10.5281/zenodo.23068915](https://doi.org/10.5281/zenodo.23068915)
+(este endereço leva sempre à versão mais nova).

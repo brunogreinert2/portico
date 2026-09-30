@@ -51,8 +51,10 @@ Cada obra diz a sua fonte no próprio arquivo (`source`, `source_repo`,
 ## Como citar
 
 Cada obra traz, no topo da sua página em https://pedraangular.app.br/rolo/, a
-citação pronta e o BibTeX. O acervo inteiro tem versões numeradas; cada versão
-tem um DOI.
+citação pronta e o BibTeX. O acervo inteiro tem versões numeradas, e cada versão
+fica guardada no Zenodo, com DOI: o acervo como um todo se cita por
+[10.5281/zenodo.23068915](https://doi.org/10.5281/zenodo.23068915), que leva sempre
+à versão mais nova — e é por ali também que se baixa o acervo completo.
 
 ## Correções
 
