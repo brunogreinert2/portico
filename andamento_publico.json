@@ -2,6 +2,12 @@
  "_gerado_por": "portico/gerar.py, das fichas locais marcadas public — nao editar",
  "fichas": [
   {
+   "frente": "App de leitura — \"Meus Arquivos\" (baixar tudo, apagar tudo, importar de volta)",
+   "estado": "na fila",
+   "tocado_em": "2026-09-29",
+   "nota": "No app, trocar de conjunto de textos sem medo — baixar uma cópia de tudo, apagar tudo com dupla confirmação, e importar de volta."
+  },
+  {
    "frente": "Encheirídion — tradução para o português",
    "estado": "em curso",
    "tocado_em": "2026-09-29",

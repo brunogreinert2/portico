@@ -32,10 +32,12 @@ import base64
 import html
 import json
 import re
+import os
 import shutil
+import subprocess
 import sys
 import unicodedata
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
@@ -982,7 +984,7 @@ def montar(abas, temas_css, fontes_css, embutido: bool, fragmento: bool = False,
     if publico:
         aviso_sem_js = ""
         md = publico.get("md")
-        colofao = (f"Gerado em {hoje} pelo <code>gerar.py</code> do repositório "
+        colofao = (f"Gerado em {publico.get('carimbo') or hoje} pelo <code>gerar.py</code> do repositório "
                    '<a href="https://github.com/brunogreinert2/portico">portico</a>'
                    + (f' · o mesmo texto em Markdown: <a href="{md}">{md}</a>' if md else "")
                    + " · zero rede em runtime (LEI 3)")
@@ -1162,12 +1164,11 @@ def andamento_publico_md(hoje: date) -> str:
             continue
         partes += [f"## {estado[0].upper() + estado[1:]}", ""]
         for f in grupo:
-            dias = (hoje - date.fromisoformat(f["tocado_em"])).days
-            quando = "hoje" if dias <= 0 else "ontem" if dias == 1 else f"há {dias} dias"
             partes += [f"### {f['frente']}", ""]
             if f.get("nota"):
                 partes += [f["nota"], ""]
-            partes += [f"*Última vez: {f['tocado_em']} ({quando}).*", ""]
+            # so a data: "ontem" numa pagina estatica congela (teste de 2026-09-29)
+            partes += [f"*Última vez: {f['tocado_em']}.*", ""]
     if not fichas:
         partes.append("Nada publicado aqui ainda.")
     return "\n".join(partes) + "\n"
@@ -1276,6 +1277,30 @@ HTML_CONFERIDOR = """
 """
 
 
+def _commit(pasta: Path) -> str:
+    try:
+        r = subprocess.run(["git", "-C", str(pasta), "rev-parse", "HEAD"],
+                           capture_output=True, text=True, timeout=10)
+        return r.stdout.strip()[:8] if r.returncode == 0 else ""
+    except (OSError, subprocess.SubprocessError):
+        return ""
+
+
+def carimbo_dos_commits(app: Path) -> str:
+    """Data e hora UTC da geracao e o commit dos dois repositorios. Uma IA le
+    copia em cache sem saber; foi o carimbo do rolo que mostrou a um Claude,
+    em 2026-09-29, que ele estava lendo a versao velha."""
+    agora = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    portico = _commit(AQUI)
+    leitura = os.environ.get("GITHUB_SHA", "")[:8] or _commit(app)
+    partes = [agora]
+    if portico:
+        partes.append(f"portico {portico}")
+    if leitura:
+        partes.append(f"app-leitura {leitura}")
+    return ", ".join(partes)
+
+
 def gerar_publico(saida: Path, app: Path, normas: Path):
     hoje = date.today()
     saida.mkdir(parents=True, exist_ok=True)
@@ -1290,6 +1315,7 @@ def gerar_publico(saida: Path, app: Path, normas: Path):
         encoding="utf-8")
     shutil.copy2(AQUI / "conferidor.js", saida / "conferidor.js")
 
+    carimbo = carimbo_dos_commits(app)
     publico = AQUI / "conteudo" / "publico"
     entradas = entradas_do_diario(AQUI / "diario")
     paginas = [
@@ -1335,7 +1361,7 @@ def gerar_publico(saida: Path, app: Path, normas: Path):
             "todas": todas, "titulo": f"{a['nome']} · Pórtico do Pedra Angular" if a["base"] != "index"
             else "Pórtico do Pedra Angular",
             "descricao": a["desc"], "url": SITE + ("" if a["base"] == "index" else a["arquivo"]),
-            "md": f"{a['base']}.md"})
+            "md": f"{a['base']}.md", "carimbo": carimbo})
         if a["base"] == "contribuir":
             pagina = pagina.replace("</body>", '<script src="conferidor.js"></script>\n</body>', 1)
         (saida / a["arquivo"]).write_text(pagina, encoding="utf-8")

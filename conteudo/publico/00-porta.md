@@ -44,7 +44,10 @@ Nenhuma passa de 80 KB: cabe inteira numa leitura.
 Não é preciso descer índice por índice. O catálogo lista o id de cada obra, e o
 endereço se monta com ele:
 
-- o catálogo inteiro: [https://pedraangular.app.br/livros/catalogo.json](https://pedraangular.app.br/livros/catalogo.json)
+- o catálogo em pedaços, um por acervo, cada um cabendo numa leitura:
+  [https://pedraangular.app.br/rolo/catalogo/](https://pedraangular.app.br/rolo/catalogo/)
+  (em JSON: [https://pedraangular.app.br/rolo/catalogo/index.json](https://pedraangular.app.br/rolo/catalogo/index.json))
+- o catálogo inteiro, que o app usa (passa de 80 KB): [https://pedraangular.app.br/livros/catalogo.json](https://pedraangular.app.br/livros/catalogo.json)
 - a estante, com a regra dos endereços: [https://pedraangular.app.br/rolo/](https://pedraangular.app.br/rolo/)
 - uma obra: `https://pedraangular.app.br/rolo/<id>.html`
 - uma passagem: a obra mais a âncora, por exemplo
