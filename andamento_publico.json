@@ -3,9 +3,9 @@
  "fichas": [
   {
    "frente": "App de leitura — \"Meus Arquivos\" (baixar tudo, apagar tudo, importar de volta)",
-   "estado": "na fila",
-   "tocado_em": "2026-09-29",
-   "nota": "No app, trocar de conjunto de textos sem medo — baixar uma cópia de tudo, apagar tudo com dupla confirmação, e importar de volta."
+   "estado": "concluído",
+   "tocado_em": "2026-09-30",
+   "nota": "Em Meus arquivos, Excluir todos os meus textos — oferece uma cópia antes e confirma com a contagem; as preferências ficam."
   },
   {
    "frente": "Encheirídion — tradução para o português",
