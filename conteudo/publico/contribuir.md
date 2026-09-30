@@ -84,10 +84,14 @@ Só esta sintaxe, e nada além:
 - verso ou poema: dentro de um bloco ` ```verso ` … ` ``` `, onde cada linha
   fica uma linha;
 - interlinear: dentro de ` ```interlinear ` … ` ``` `;
-- imagem: `{{img:id}}` sozinha na linha.
+- imagem: `{{img:id}}` sozinha na linha, ou `![descrição](…)`;
+- citação, assinatura ou linha de interlinear: `>` no começo da linha (aparece
+  com um risco vertical ao lado). Linhas seguidas dentro do mesmo `>` se juntam
+  num parágrafo; para verso, use o bloco ` ```verso `;
+- ligação a um personagem ou a outra obra: `[[Nome]]` (wikilink).
 
-**Não entra no texto:** `>` de citação, `[[wikilink]]`, `![imagem](…)`,
-tabela, `==realce==`, tag ou comentário HTML/XML, e a palavra `null`.
+**Não entra no texto:** tabela, `==realce==`, tag ou comentário HTML/XML, e a
+palavra `null`.
 
 ## Licença
 
