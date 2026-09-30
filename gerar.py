@@ -1191,7 +1191,9 @@ def entradas_do_diario(pasta: Path) -> list[dict]:
 def diario_md(entradas: list[dict]) -> str:
     partes = ["# Diário", "",
               "O que foi feito, e por quê. A entrada mais nova vem primeiro. Para "
-              "acompanhar sem voltar aqui: o [feed](feed.xml).", ""]
+              "acompanhar sem voltar aqui: o [feed](feed.xml) — um endereço para colar "
+              "num leitor de feeds (Feedly, Inoreader, NetNewsWire, Thunderbird), e cada "
+              "entrada nova chega sozinha.", ""]
     for e in entradas:
         partes += [f"## {e['data']} · {e['titulo']}", "", e["corpo"], ""]
     if not entradas:
@@ -1216,6 +1218,9 @@ def feed_atom(entradas: list[dict], sumario_por_titulo: dict) -> str:
         )
     return (
         '<?xml version="1.0" encoding="utf-8"?>\n'
+        # quem abre o feed no navegador vê uma página que explica o que é
+        # (feed.xsl); os leitores de feed ignoram a folha e leem o Atom
+        '<?xml-stylesheet type="text/xsl" href="feed.xsl"?>\n'
         '<feed xmlns="http://www.w3.org/2005/Atom">'
         "<title>Diário do Pedra Angular</title>"
         f'<link href="{SITE}diario.html"/><link rel="self" href="{SITE}feed.xml"/>'
@@ -1223,6 +1228,49 @@ def feed_atom(entradas: list[dict], sumario_por_titulo: dict) -> str:
         "<author><name>Διαφορεύς</name></author>"
         + "".join(itens) + "</feed>\n"
     )
+
+
+FEED_XSL = """<?xml version="1.0" encoding="utf-8"?>
+<!-- Gerado por portico/gerar.py. Quem abre o feed.xml no navegador vê esta
+     página, e não o código: o que é um feed, o endereço para colar num leitor,
+     e as entradas. Os leitores de feed ignoram esta folha. -->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:atom="http://www.w3.org/2005/Atom" exclude-result-prefixes="atom">
+<xsl:output method="html" encoding="utf-8" doctype-system="about:legacy-compat"/>
+<xsl:template match="/">
+<html lang="pt-BR" data-theme="claro" data-fonte="cardo">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Feed do Diário · Pórtico do Pedra Angular</title>
+<link rel="stylesheet" href="portico.css"/>
+<script>try{var h=document.documentElement,t=localStorage.getItem('portico:tema'),f=localStorage.getItem('portico:fonte');if(t)h.setAttribute('data-theme',t);if(f)h.setAttribute('data-fonte',f);}catch(e){}</script>
+</head>
+<body>
+<main id="conteudo" style="max-width:42rem;margin:0 auto;padding:1.5rem 1rem 3rem">
+<p class="chapeu">o Diário, para leitores de feed</p>
+<h1>Este endereço é um feed</h1>
+<p>Um <strong>feed</strong> é um endereço para colar num <strong>leitor de feeds</strong>
+(Feedly, Inoreader, NetNewsWire, Thunderbird e outros). Colado uma vez, cada entrada
+nova do Diário do Pedra Angular chega sozinha, junto com os outros sites que você
+acompanha: sem e-mail, sem cadastro, sem rede social.</p>
+<p>O endereço para colar no seu leitor:</p>
+<p><code style="overflow-wrap:anywhere">https://pedraangular.app.br/portico/feed.xml</code></p>
+<p>Para ler aqui mesmo, o <a href="diario.html">Diário</a>, com as entradas por inteiro.</p>
+<h2>Entradas</h2>
+<ul>
+<xsl:for-each select="atom:feed/atom:entry">
+<li><a href="{atom:link/@href}"><xsl:value-of select="substring(atom:updated,1,10)"/> · <xsl:value-of select="atom:title"/></a></li>
+</xsl:for-each>
+</ul>
+<p lang="en" class="n">This is an Atom feed of the Pedra Angular diary (in Portuguese): paste the
+address above into a feed reader.</p>
+</main>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>
+"""
 
 
 def sem_caminhos(texto: str) -> str:
@@ -1379,6 +1427,7 @@ def gerar_publico(saida: Path, app: Path, normas: Path):
     diario = next(a for a in todas if a["base"] == "diario")
     (saida / "feed.xml").write_text(
         feed_atom(entradas, {t: i for _, i, t in diario["sumario"]}), encoding="utf-8")
+    (saida / "feed.xsl").write_text(FEED_XSL, encoding="utf-8")
     if (AQUI / "icone").exists():
         shutil.copytree(AQUI / "icone", saida / "icone", dirs_exist_ok=True)
 
