@@ -12,6 +12,11 @@ Versão 2 · 2026-08-08 · Escrito a partir de auditoria dos três projetos
 existentes. A versão 2 acrescenta a LEI 8 e o Capítulo 1 (a Barra Angular),
 decisão do Διαφορεύς, e corrige a justificativa do prefixo de token (N14, N55).
 
+Versão 3 · 2026-09-30 · O formato volta a ser um só e generoso (N7, N8, N9):
+nenhum app tem sintaxe menor que os outros, e o que um app ainda não desenha
+aparece como texto. As normas que só valem para o app infantil (N51, N52)
+passam para o Capítulo 14; **todo o resto vale para o ecossistema inteiro.**
+
 Escopo verificado: `C:\Claude\app-leitura`, `C:\Claude\app-infantil`,
 `C:\Claude\Rolo_HTML` e `C:\Claude\oficina`. A Oficina nasceu conforme em
 2026-08-09 (`github.com/brunogreinert2/oficina`) e é hoje a referência de
@@ -323,20 +328,41 @@ desde o primeiro dia.
 **N6.** Todo conteúdo é um arquivo `.md`: front matter YAML + texto. Sem
 exceção, em qualquer app.
 
-**N7.** O parser é burro de propósito e não aprende sintaxe nova. Três regras
-de linha, e apenas três:
+**N7.** O formato é um só, para o ecossistema inteiro, e é generoso: nenhum
+app tem uma sintaxe menor que a dos outros. Um arquivo escrito para um app
+serve para qualquer outro. A sintaxe comum:
 
-| Linha | Vira |
+| No texto | É |
 | --- | --- |
-| `#{1,}` seguido de espaço e texto | cabeçalho, profundidade arbitrária |
-| `{{img:id}}` sozinha na linha | o asset de id `id` |
-| qualquer outra linha não vazia | parágrafo; linhas consecutivas se juntam |
+| `#{1,}` seguido de espaço e texto | cabeçalho, profundidade arbitrária (N10) |
+| linha não vazia | parágrafo (CommonMark) |
+| `> texto` | citação, assinatura (`> Ὁ Διαφορεύς παρῆν`), linha de interlinear |
+| `[[Nome]]` | ligação a um personagem ou a outra obra (wikilink) |
+| `![descrição](caminho)` ou `{{img:id}}` sozinha na linha | imagem |
+| `[^n]` e `[^n]: nota` no fim | nota |
+| `^id` e `^por`, `^grc`… no fim da linha | âncora (N12) e idioma (N76) |
+| `[216a]`, `[1.1]` | marcador canônico (N11) |
+| bloco ` ```verso ` ou ` ```interlinear ` | uma linha do arquivo, uma linha na tela |
 
-**N8.** O texto é burro, o front matter é rico. Toda riqueza — mídia, tema,
-abertura, quiz, narração — entra por declaração no front matter e âncora por
-id. Referência: `app-infantil/docs/FORMATO_LIVRO.md`.
+Fora do formato: tabela, `==realce==`, HTML/XML e a palavra `null` vazada. A
+régua executável é o esquema e o validador do acervo
+(`app-leitura/scripts/acervo/frontmatter.schema.json` e `validar_corpus.py`),
+que o conferidor do Pórtico usa no navegador.
 
-**N9.** Imagem nunca é sintaxe inline. Nada de `![alt](caminho.png)` solto.
+**Cada app desenha o que já sabe desenhar; o que ainda não sabe, mostra como
+texto, e nunca quebra.** Uma sintaxe que um app ainda não desenha é trabalho a
+fazer nele, não proibição no formato. Revisão de 2026-09-30 (Διαφορεύς): a
+versão anterior desta norma (três regras, sem `>`, sem wikilink, sem `![]()`)
+descrevia o parser dos livrinhos do app-infantil e fazia qualquer leitor desta
+norma proibir no acervo o que o acervo usa.
+
+**N8.** O texto é limpo, o front matter é rico. Toda riqueza — mídia, tema,
+abertura, quiz, narração, identidade, licença — entra por declaração no front
+matter e âncora por id, não por marcação espalhada no texto.
+
+**N9.** Imagem se escreve de um dos dois jeitos do N7: `{{img:id}}` (o asset
+declarado no front matter, com descrição e licença lá) ou `![descrição](caminho)`.
+Toda imagem tem descrição, para quem não a vê.
 
 **N10.** Profundidade de cabeçalho não tem teto. O limite de 6 é herança do
 HTML de 1991, não regra do Markdown. Níveis 7+ saem como
@@ -349,15 +375,12 @@ com 8 níveis, `ProvaDeFogo` com 17.
 **N12.** Âncora `^id` no markdown vira `id="id"` no HTML, nos dois sentidos e
 nas duas camadas. Sujeita à Lei 6.
 
-**Estado hoje:** os dois apps cumprem N7 e N10 com implementações
-independentes (`app-leitura/src/lib/remarkDeepHeadings.ts`,
-`app-infantil/src/motor/parser.ts`). Divergência a resolver: o app-leitura
-usa `remark` completo com CommonMark; o app-infantil usa parser próprio de 64
-linhas. **O parser do app-infantil é o correto para o ecossistema** — é
-testável isoladamente, não tem dependência, e faz exatamente o que a norma
-manda. O remark do app-leitura carrega CommonMark inteiro para depois
-combatê-lo (`white-space: pre-line` existe para desfazer a fusão de linhas do
-CommonMark).
+**Estado hoje (2026-09-30):** cada app tem o parser do seu uso, e nenhum é "o
+certo" do outro. O app-leitura (`remark`) e o rolo desenham o formato quase
+inteiro; falta a imagem (`{{img:id}}` e `![]()`), que chega com as obras
+ilustradas (Piso & Marcgrave). O app-infantil (`src/motor/parser.ts`) desenha
+cabeçalho, imagem e parágrafo; `>` e wikilink aparecem como texto até um
+livrinho pedir por eles.
 
 ---
 
@@ -974,14 +997,6 @@ sobrevive a troca de conteúdo.
 **N50.** Nenhum dado do usuário sai do aparelho. Sem telemetria, sem conta,
 sem sincronização silenciosa. Corolário da Lei 3.
 
-**N51.** Recompensa é fixa e previsível, nunca aleatória. Terminar o livro X
-sempre dá a insígnia Y. Sem mecânica de sorte — o gatilho de dopamina
-aleatório é exatamente o que o projeto existe para não reproduzir.
-
-**N52.** Métrica de acerto é registrada em silêncio e nunca exibida à criança
-como nota. Zero gate: qualquer resposta revela a correta com explicação, e
-nada trava o avanço. Progressão se dá por **participação**, jamais por acerto.
-
 ---
 
 ## Capítulo 12 — Identidade e selo
@@ -1063,6 +1078,22 @@ committando. Créditos são escassos e a sessão pode morrer a qualquer momento.
 
 ---
 
+## Capítulo 14 — Só no app infantil
+
+Pedagogia dos livrinhos para crianças (Historinhas). Estas duas normas valem
+só lá; tudo o mais neste arquivo vale para o ecossistema inteiro. Os números
+ficam os mesmos de sempre (N51, N52), porque são citados em código.
+
+**N51.** Recompensa é fixa e previsível, nunca aleatória. Terminar o livro X
+sempre dá a insígnia Y. Sem mecânica de sorte — o gatilho de dopamina
+aleatório é exatamente o que o projeto existe para não reproduzir.
+
+**N52.** Métrica de acerto é registrada em silêncio e nunca exibida à criança
+como nota. Zero gate: qualquer resposta revela a correta com explicação, e
+nada trava o avanço. Progressão se dá por **participação**, jamais por acerto.
+
+---
+
 ## Anexo A — Conformidade hoje
 
 Instantâneo de 2026-08-08, para saber por onde começar.
@@ -1072,7 +1103,7 @@ Instantâneo de 2026-08-08, para saber por onde começar.
 | **LEI 8 / N60–N66 barra angular** | parcial (tem os 4, aparência divergente) | **viola** (sem Φ, sem Ξ) | **referência** |
 | **Oficina** (superfície nova, 2026-08-09) | cumpre LEI 8, LEI 1/2, LEI 3, N13–N14, N21, N26, N29, N31, N36, N38 — nasceu conforme | | |
 | N1 três camadas | cumpre | **viola** | é a camada 2 |
-| N7 parser de 3 regras | parcial (remark) | **referência** | cumpre |
+| N7 formato único (revisto 2026-09-30) | quase todo (falta imagem) | parcial (sem `>`, wikilink) | quase todo (falta imagem) |
 | N10 profundidade sem teto | cumpre | cumpre | cumpre |
 | N14–15 vocabulário de token | divergente | divergente | divergente |
 | N18 paleta única | **viola** | cumpre | cumpre |
@@ -1145,6 +1176,9 @@ não se violam, mesmo com pedido explícito para "só desta vez":
 15. Nunca ampliar a lista de códigos da etiqueta de idioma em uma superfície
     só — as duas mudam juntas ou nenhuma muda (N76).
 16. Nunca escrever faixa Unicode com o caractere literal; sempre `\u` (N79).
+17. Nunca proibir num app uma sintaxe do formato comum (N7) — `>`,
+    `[[wikilink]]`, `![]()`, `{{img:id}}`. O que um app ainda não desenha
+    aparece como texto: é trabalho a fazer nele, não regra a impor ao arquivo.
 
 Antes de mexer em aparência, leia este arquivo inteiro. Antes de concluir,
 rode o N58.
