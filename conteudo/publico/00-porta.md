@@ -28,14 +28,34 @@ que está em andamento e como contribuir.
 Leia nesta ordem, em Markdown puro, antes de sugerir ou produzir qualquer coisa
 para o Pedra Angular:
 
-1. [normas.md](normas.md) — a norma inteira. Onde o seu hábito divergir dela,
-   ela vence.
-2. [contribuir.md](contribuir.md) — o formato exato de um arquivo do acervo.
-   Não invente campo, não traduza nome de campo, não escreva `null`.
-3. [andamento.md](andamento.md) — o que já está sendo feito, para não refazer.
+1. [https://pedraangular.app.br/portico/normas.md](https://pedraangular.app.br/portico/normas.md)
+   — a norma inteira. Onde o seu hábito divergir dela, ela vence.
+2. [https://pedraangular.app.br/portico/contribuir.md](https://pedraangular.app.br/portico/contribuir.md)
+   — o formato exato de um arquivo do acervo. Não invente campo, não traduza
+   nome de campo, não escreva `null`.
+3. [https://pedraangular.app.br/portico/andamento.md](https://pedraangular.app.br/portico/andamento.md)
+   — o que já está sendo feito, para não refazer.
 
 Cada página deste Pórtico tem a sua versão `.md` ao lado, com o mesmo texto.
 Nenhuma passa de 80 KB: cabe inteira numa leitura.
+
+### Para ir direto a um texto
+
+Não é preciso descer índice por índice. O catálogo lista o id de cada obra, e o
+endereço se monta com ele:
+
+- o catálogo inteiro: [https://pedraangular.app.br/livros/catalogo.json](https://pedraangular.app.br/livros/catalogo.json)
+- a estante, com a regra dos endereços: [https://pedraangular.app.br/rolo/](https://pedraangular.app.br/rolo/)
+- uma obra: `https://pedraangular.app.br/rolo/<id>.html`
+- uma passagem: a obra mais a âncora, por exemplo
+  [https://pedraangular.app.br/rolo/biblia-40-mateus-grc-sblgnt-2010.html#anchor-mt-23-23](https://pedraangular.app.br/rolo/biblia-40-mateus-grc-sblgnt-2010.html#anchor-mt-23-23)
+  (Mateus 23:23, grego) ou
+  [https://pedraangular.app.br/rolo/platao-sophist-grc-john-burnet-1905.html#marker-216a](https://pedraangular.app.br/rolo/platao-sophist-grc-john-burnet-1905.html#marker-216a)
+  (Platão, Sofista 216a)
+
+Uma ressalva honesta: parte das obras é longa (a página inteira de Mateus tem
+mais de 200 KB de texto). Se a sua ferramenta cortar a leitura, a âncora da
+passagem pode ficar depois do corte. Páginas por capítulo estão a caminho.
 
 ## As três camadas
 
@@ -52,9 +72,7 @@ O acervo existe em três formas, e cada uma tem um leitor:
 Todo endereço de obra e de passagem é eterno: publicado, não muda mais (LEI 6).
 Uma passagem se cita pelo rolo, com a âncora do marcador canônico:
 
-```
-https://pedraangular.app.br/rolo/epicteto-encheiridion-grc-heinrich-schenkl-1916.html#marker-1.1
-```
+[https://pedraangular.app.br/rolo/epicteto-encheiridion-grc-heinrich-schenkl-1916.html#marker-1.1](https://pedraangular.app.br/rolo/epicteto-encheiridion-grc-heinrich-schenkl-1916.html#marker-1.1)
 
 Stephanus, Bekker, capítulo e versículo: o marcador é o da própria tradição,
 nunca reformatado.
