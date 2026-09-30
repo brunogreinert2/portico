@@ -59,11 +59,6 @@ Batch API, `lexico_decisoes.yaml` para as decisões de tradução, sinalização
 obrigatória de incerteza. Começou pelos diálogos platônicos: Górgias, Teeteto,
 Sofista.
 
-**Acervo Diaphoreus** · `C:\Projetos\Diaphoreus\ACERVO`
-
-Latim e grego, de Abelardo a Boécio, 41 autores. Chegou por outro caminho e
-ainda não passa pelo Conversor nem pelo Corretor.
-
 ---
 
 ## Saída — onde o texto encontra o leitor

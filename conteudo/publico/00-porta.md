@@ -84,9 +84,9 @@ Uma passagem se cita pelo rolo, com a âncora do marcador canônico:
 Stephanus, Bekker, capítulo e versículo: o marcador é o da própria tradição,
 nunca reformatado.
 
-Cada obra traz, no topo da sua página, a **citação pronta** e o **BibTeX** (o
-Zotero também a reconhece sozinho), e uma **URN** no padrão CTS, que também não
-muda nunca. A URN leva direto à obra e à passagem:
+Cada obra traz, no topo da sua página (e nos **Detalhes**, dentro do app), a
+**citação pronta** e o **BibTeX** — o Zotero também a reconhece sozinho —, e uma
+**URN** no padrão CTS, que também não muda nunca. A URN leva direto à obra e à passagem:
 
 - [https://pedraangular.app.br/urn/?urn:cts:greekLit:tlg0059.tlg007.perseus-grc2:216a](https://pedraangular.app.br/urn/?urn:cts:greekLit:tlg0059.tlg007.perseus-grc2:216a)
   (Platão, Sofista 216a)
