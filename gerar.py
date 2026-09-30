@@ -1321,6 +1321,9 @@ def gerar_publico(saida: Path, app: Path, normas: Path):
     paginas = [
         ("aba-porta", "Pórtico", "o que é isto", "index", (publico / "00-porta.md").read_text(encoding="utf-8"),
          "A porta de trás do Pedra Angular: como o acervo é feito, a norma que ele segue e como contribuir."),
+        ("aba-nota", "Nota editorial", "o que o acervo faz com os textos", "nota-editorial",
+         (publico / "nota-editorial.md").read_text(encoding="utf-8"),
+         "O que o Pedra Angular normaliza e o que preserva nos textos, de onde eles vêm e como citá-los."),
         ("aba-andamento", "Em andamento", "o que está sendo feito", "andamento", andamento_publico_md(hoje),
          "O que está sendo feito no Pedra Angular agora."),
         ("aba-diario", "Diário", "o que foi feito, e por quê", "diario", diario_md(entradas),

@@ -41,7 +41,7 @@
    "frente": "Saneamento do corpus (URN, metadados, conversor TEI)",
    "estado": "em curso",
    "tocado_em": "2026-09-30",
-   "nota": "As 1.109 obras do acervo estão na norma — metadados em inglês, licença declarada em cada uma, nenhum endereço perdido. Próximo passo, a citabilidade."
+   "nota": "As 1.109 obras estão na norma e cada uma tem URN, citação pronta e BibTeX; a nota editorial diz o que o acervo faz com os textos. Próximo, a versão 1.0 com DOI."
   },
   {
    "frente": "Silvestre Pinheiro Ferreira — Manual do Cidadão e Categorias",
