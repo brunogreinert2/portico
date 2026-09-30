@@ -1,6 +1,6 @@
 # NORMAS DO ECOSSISTEMA
 
-Norma rígida e comum a todo software do Bruno: Pedra Angular (app-leitura),
+Norma rígida e comum a todo software do Διαφορεύς: Pedra Angular (app-leitura),
 Historinhas (app-infantil), o kit do rolo (Rolo_HTML), a Oficina e o
 ateliedeotica.com.br quando existirem.
 
@@ -10,7 +10,7 @@ referência de implementação — copiar de lá, não reinventar.
 
 Versão 2 · 2026-08-08 · Escrito a partir de auditoria dos três projetos
 existentes. A versão 2 acrescenta a LEI 8 e o Capítulo 1 (a Barra Angular),
-decisão do Bruno, e corrige a justificativa do prefixo de token (N14, N55).
+decisão do Διαφορεύς, e corrige a justificativa do prefixo de token (N14, N55).
 
 Escopo verificado: `C:\Claude\app-leitura`, `C:\Claude\app-infantil`,
 `C:\Claude\Rolo_HTML` e `C:\Claude\oficina`. A Oficina nasceu conforme em
@@ -65,7 +65,7 @@ documentos.
 > configuração na qual ele tem condições de ler. Testando no caso mais
 > difícil, o fácil se torna ridiculamente fácil.
 >
-> — Bruno, 2026-08-08
+> — Διαφορεύς, 2026-08-08
 
 É esta a razão de o piso ser alto, e não um capricho. O usuário de referência
 do ecossistema não é quem lê confortavelmente: é quem chega sem enxergar
@@ -165,7 +165,7 @@ barra do topo, Ξ na extremidade direita, A− e A+ entre os dois, nesta ordem.
 Nada se insere fora desse intervalo; o que for específico do app entra
 **entre** A+ e Ξ.
 
-A ordem não é estética. A barra representa o Bruno em pé, de frente, em
+A ordem não é estética. A barra representa o Διαφορεύς em pé, de frente, em
 posição anatômica: Φ e Ξ são as tatuagens da face anterior dos antebraços
 dele, espelhadas. Trocar de lado inverte a pessoa. Ver também N54 no
 Capítulo 12.
@@ -198,7 +198,7 @@ redefine isso; se um app precisa de outra coisa, ou a norma muda para todos ou
 o app está errado.
 
 Os valores acima são proposta de implementação, não lei — a lei é que os
-quatro sejam idênticos entre si e entre os apps. Ajustar é decisão do Bruno,
+quatro sejam idênticos entre si e entre os apps. Ajustar é decisão do Διαφορεύς,
 uma vez, para todos.
 
 **N63 — Φ e Ξ são letras, nunca ícones.** Texto real, em fonte serifada,
@@ -376,7 +376,7 @@ Sem o prefixo não dá para saber qual é qual sem abrir outro arquivo.
 Nota de 2026-08-08: a primeira versão desta norma justificava o prefixo neutro
 pela separação entre a pseudonímia do Διαφορεύς e o nome real na ótica. **Esse
 argumento não vale** — o registro `.app.br` já exige e expõe o nome real, e a
-decisão do Bruno é conviver com isso. A pseudonímia segue como escolha de tom
+decisão do Διαφορεύς é conviver com isso. A pseudonímia segue como escolha de tom
 e de estética, nunca como requisito de segurança. Não reabrir.
 
 Motivo do nome funcional: no tema pergaminho o acento não é azul, e um token
@@ -992,13 +992,13 @@ app-infantil**, em nenhuma tela, rodapé ou colofão.
 
 **N54.** Φ à esquerda e Ξ à direita são restrição de projeto, não preferência
 estética, e desde a LEI 8 valem em **todos** os apps, não só no Pedra Angular.
-São as tatuagens da face anterior dos antebraços do Bruno; a barra o
+São as tatuagens da face anterior dos antebraços do Διαφορεύς; a barra o
 representa em pé, de frente, em posição anatômica de referência. Não trocar os
 símbolos, não trocar de lado, não substituir por ícone (N63).
 
 **N55.** A pseudonímia do Διαφορεύς é escolha de tom e de estética, **não**
 requisito de segurança — o registro `.app.br` já exige e expõe o nome real, e
-a decisão do Bruno é conviver com isso. Portanto: nenhuma norma, arquitetura
+a decisão do Διαφορεύς é conviver com isso. Portanto: nenhuma norma, arquitetura
 ou nome de token deve ser justificado por proteção de identidade, e o assunto
 não se reabre a cada sessão. Escrever com sobriedade continua valendo; esconder
 não.
