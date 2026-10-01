@@ -82,7 +82,7 @@ protanomalia o rosa lê cinza e o roxo lê azul, e o sinal some sem avisar.
 1. **Situar no caminho.** Toda peça ocupa um ponto do percurso que a aba
    **As peças** descreve. Se a peça nova não ocupa nenhum, ou o percurso mudou,
    ou a peça não é do ecossistema.
-2. **Ler a aba Normas** — as oito leis e a Barra Angular, no mínimo — e o
+2. **Ler a aba Normas** — as nove leis e a Barra Angular, no mínimo — e o
    `README.md` da pasta em que vai mexer.
 3. **Herdar os tokens**, os nove temas e o par de tipos. Copiar do app que já
    cumpre, nunca reinventar.

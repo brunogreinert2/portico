@@ -1380,7 +1380,7 @@ def gerar_publico(saida: Path, app: Path, normas: Path):
          (publico / "contribuir.md").read_text(encoding="utf-8"),
          "O formato de um arquivo do acervo do Pedra Angular, e um conferidor que diz na hora se ele está no padrão."),
         ("aba-normas", "Normas", "o que toda coisa nova obedece", "normas", normas.read_text(encoding="utf-8"),
-         "As oito leis e as normas numeradas do ecossistema Pedra Angular."),
+         "As nove leis e as normas numeradas do ecossistema Pedra Angular."),
         ("aba-pecas", "As peças", "o que existe e o que cada uma faz", "pecas",
          sem_caminhos((AQUI / "conteudo" / "01-pecas.md").read_text(encoding="utf-8")),
          "As peças do ecossistema Pedra Angular e o percurso de um texto, do bruto ao leitor."),

@@ -18,7 +18,7 @@ que está em andamento e como contribuir.
 
 | Se você quer… | Leia |
 |---|---|
-| entender a regra que tudo segue | [Normas](normas.html) — as oito leis e as normas numeradas |
+| entender a regra que tudo segue | [Normas](normas.html) — as nove leis e as normas numeradas |
 | mandar um texto para o acervo | [Contribuir](contribuir.html) — o formato, e um conferidor que diz na hora se o arquivo está no padrão |
 | saber o que está sendo feito agora | [Em andamento](andamento.html) e o [Diário](diario.html) |
 | conhecer as peças do ecossistema | [As peças](pecas.html) |

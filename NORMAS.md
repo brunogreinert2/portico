@@ -17,6 +17,9 @@ nenhum app tem sintaxe menor que os outros, e o que um app ainda não desenha
 aparece como texto. As normas que só valem para o app infantil (N51, N52)
 passam para o Capítulo 14; **todo o resto vale para o ecossistema inteiro.**
 
+Versão 4 · 2026-10-01 · LEI 9, AI FIRST: a pessoa e a IA dela pilotam as
+mesmas ferramentas, e toda ferramenta ensina como ser pilotada.
+
 Escopo verificado: `C:\Claude\app-leitura`, `C:\Claude\app-infantil`,
 `C:\Claude\Rolo_HTML` e `C:\Claude\oficina`. A Oficina nasceu conforme em
 2026-08-09 (`github.com/brunogreinert2/oficina`) e é hoje a referência de
@@ -140,6 +143,18 @@ renomeia, os esconde ou os substitui por outra coisa. O que cada app tem de
 
 Primeiro o básico bem feito e robusto; a especialização é o que se constrói
 sobre ele. Detalhamento no Capítulo 1.
+
+**LEI 9 — AI FIRST.**
+Tudo é feito para ser pilotado por uma pessoa e pela IA dela, com o mesmo
+direito. Toda ferramenta ensina, em texto que se lê sem executar nada, como
+pilotá-la; o que ela ainda não sabe fazer vira capacidade nova dela, não
+contorno feito por fora. E nada nos acorrenta: nenhum software privativo,
+nada pesado sem necessidade.
+
+É o que a LEI 1 já dizia antes de ter nome — legível por humanos e por
+máquinas — levado das obras às ferramentas. (Διαφορεύς, 2026-10-01)
+
+> A pé, em uma hora, poucos quilômetros. De moto, a praia.
 
 ---
 
@@ -1179,6 +1194,9 @@ não se violam, mesmo com pedido explícito para "só desta vez":
 17. Nunca proibir num app uma sintaxe do formato comum (N7) — `>`,
     `[[wikilink]]`, `![]()`, `{{img:id}}`. O que um app ainda não desenha
     aparece como texto: é trabalho a fazer nele, não regra a impor ao arquivo.
+18. Nunca contornar em silêncio uma ferramenta do ecossistema: use-a antes do
+    "seu jeito", e o que ela não souber fazer vira proposta de capacidade nela
+    (LEI 9).
 
 Antes de mexer em aparência, leia este arquivo inteiro. Antes de concluir,
 rode o N58.

@@ -93,7 +93,7 @@ e os cadernos de astigmatismo, baixa visão, dislexia e presbiopia.
 
 **NORMAS.md** · `C:\Claude\NORMAS.md`
 
-Oito leis e N1–N79 em treze capítulos. Onde o código diverge da norma, o código
+Nove leis e N1–N79 em treze capítulos. Onde o código diverge da norma, o código
 está errado. Está inteiro na aba **Normas**.
 
 **Laboratório de Cores** · `C:\Claude\laboratorio` · `medir_contraste.py`
