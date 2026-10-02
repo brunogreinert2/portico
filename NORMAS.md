@@ -897,7 +897,8 @@ sinal claro **e** folga sobre o segundo colocado. Trecho com menos de seis
 palavras não dá amostra nenhuma e herda o `language:` do arquivo — nunca um
 `pt-BR` fixo. Era esse chute fixo que fazia a introdução em inglês do Leviathan
 sair com sotaque brasileiro. Implementação de referência: `idiomaDoTexto` em
-`app-leitura/src/lib/idioma.ts`.
+`parser/motor/idioma.ts` (o motor do ecossistema; cada app
+guarda uma cópia carimbada em `src/motor/`).
 
 **N76 — A etiqueta de idioma: `^por`, `^eng`, `^lat`, `^grc`, `^heb`, `^rus`.**
 No fim da linha, mesma sintaxe da âncora de endereço que o corpus já usa:
@@ -922,7 +923,7 @@ Quatro regras, e as quatro valem em **todas** as superfícies:
    alternam de língua a cada uma.
 
 A lista de códigos tem de ser **idêntica** nas duas implementações — `CODIGOS`
-em `app-leitura/src/lib/idioma.ts` e `ETIQUETAS_IDIOMA` em `gerador_rolo.py`.
+em `parser/motor/idioma.ts` e `ETIQUETAS_IDIOMA` em `gerador_rolo.py`.
 É o mesmo arquivo `.md` sendo lido nas duas superfícies; uma lista que diverge
 faz o app e o rolo lerem o mesmo texto em vozes diferentes.
 
