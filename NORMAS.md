@@ -1,7 +1,7 @@
 # NORMAS DO ECOSSISTEMA
 
 Norma rígida e comum a todo software do Διαφορεύς: Pedra Angular (app-leitura),
-Historinhas (app-infantil), o kit do rolo (Rolo_HTML), a Oficina e o
+Historinhas (app-infantil), o rolo (`app-leitura/scripts/rolo/`), a Oficina e o
 ateliedeotica.com.br quando existirem.
 
 Este arquivo é normativo, não descritivo. Onde ele diverge do código, o código
@@ -37,7 +37,7 @@ confusão desta pasta vem de tratá-las como se fossem a mesma coisa.
 | Camada | O que é | Formato | Quem lê | Existe hoje em |
 | --- | --- | --- | --- | --- |
 | 1. Acervo | a verdade | `.md` com front matter | humano que edita, Pandoc, XeLaTeX, IA | app-leitura `public/livros/`, app-infantil `src/conteudo/livros/` |
-| 2. Rolo | a sobrevivência | HTML estático, texto no `<body>` | IA, crawler, navegador sem JS, pendrive de 2046 | app-leitura `/rolo/`, Rolo_HTML |
+| 2. Rolo | a sobrevivência | HTML estático, texto no `<body>` | IA, crawler, navegador sem JS, pendrive de 2046 | app-leitura `/rolo/`, gerado por `app-leitura/scripts/rolo/` |
 | 3. App | o conforto | SPA interativa | humano com as mãos no aparelho | app-leitura, app-infantil |
 
 A camada 3 é a única opcional. Um app que não entrega as camadas 1 e 2 não é
@@ -1053,6 +1053,13 @@ propagada por script — nunca editada no destino.
 O gerador bifurcou em 538 linhas sem que nada avisasse. O template ainda não
 bifurcou, mas não há nada impedindo — só o fato de ninguém ter editado os
 dois.
+
+**2026-10-05 — a cópia de `Rolo_HTML/` foi aposentada.** Ela continuou parecendo
+viva e enganou dois conferidores (`conferir_marcador.py`, `conferir_enfase.py`),
+que a liam no lugar do rolo de verdade e davam segurança falsa (errata em
+`gerador/MEDICAO.md` §29). A história do kit foi para `C:\Claude\_museu\rolo\`;
+o que sobrou em `Rolo_HTML/` tem um `AVISO.md` e espera a Lixeira. Cópia viva,
+uma só: `app-leitura/scripts/rolo/`.
 
 **N57.** Todo arquivo gerado declara no topo que é gerado, por qual script, e
 a partir de qual fonte. Nenhum derivado entra no controle de versão

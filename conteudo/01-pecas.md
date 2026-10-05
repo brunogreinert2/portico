@@ -41,7 +41,7 @@ registro, desfazer, front matter, perfil por obra que refaz o resultado do zero.
 
 ## Corpus — guardar e deixar ler
 
-**Rolo** · `C:\Claude\Rolo_HTML\gerador_rolo.py` · `pedraangular.app.br/rolo/`
+**Rolo** · `C:\Claude\app-leitura\scripts\rolo\gerador_rolo.py` · `pedraangular.app.br/rolo/`
 
 Gera a camada 2 em HTML puro, sem JavaScript. É o que faz o acervo abrir em
 qualquer aparelho e sobreviver a qualquer framework. Desde 2026-08-08 é também
