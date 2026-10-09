@@ -29,7 +29,7 @@ app de leitura · página simples · acesso por IA · livro impresso
 
 Cada obra é um arquivo de texto simples, com uma ficha no topo: título, autor, edição de origem, licença. Esse arquivo é a versão de referência. Tudo o que você vê no site é gerado a partir dele, e nada o altera por fora.
 
-**Traduções próprias.** Do grego para o português, sempre direto do grego, nunca passando pelo inglês. São feitas com auxílio de IA, com as escolhas de vocabulário registradas e as passagens duvidosas assinaladas. Começaram pelos diálogos de Platão: *Górgias*, *Teeteto*, *Sofista*.
+**Traduções próprias.** Do grego para o português, sempre direto do grego, nunca passando pelo inglês. São feitas com auxílio de IA, com as escolhas de vocabulário registradas e as passagens duvidosas assinaladas. A primeira em curso é a do *Encheirídion* de Epicteto.
 
 ## Saída: onde o texto encontra o leitor
 
