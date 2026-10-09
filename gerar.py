@@ -13,6 +13,10 @@ sao a verdade do ecossistema e monta a pagina a partir deles.
   app-leitura/src/styles.css ........ os nove temas, lidos token a token
   app-leitura/public/fonts/ ......... as fontes embutidas (LEI 3)
 
+Isso e a pagina PRIVADA. O site publico (--publico) le so conteudo/publico/:
+la, normas.md e pecas.md sao versoes escritas para um estranho, e o NORMAS.md
+e o 01-pecas.md nao saem do disco.
+
 Editou a norma? Rode de novo. A pagina se refaz.
 
     python gerar.py               -> index.html          (fontes em fonts/)
@@ -1273,10 +1277,11 @@ address above into a feed reader.</p>
 """
 
 
-def sem_caminhos(texto: str) -> str:
-    """As pecas, sem os caminhos do disco: `C:\\...` some, com o separador."""
-    texto = re.sub(r"\s*·\s*`[A-Za-z]:\\[^`]*`", "", texto)
-    return re.sub(r"`[A-Za-z]:\\[^`]*`\s*·?\s*", "", texto)
+def fonte_publica(nome: str) -> str:
+    """Um arquivo de conteudo/publico/, sem o comentario de cabeca: ele diz a
+    quem edita de onde vem a pagina, e nao e texto para o leitor."""
+    texto = (AQUI / "conteudo" / "publico" / nome).read_text(encoding="utf-8")
+    return re.sub(r"\A\s*<!--.*?-->\s*", "", texto, flags=re.S)
 
 
 CSS_CONFERIDOR = r"""
@@ -1349,7 +1354,7 @@ def carimbo_dos_commits(app: Path) -> str:
     return ", ".join(partes)
 
 
-def gerar_publico(saida: Path, app: Path, normas: Path):
+def gerar_publico(saida: Path, app: Path):
     hoje = date.today()
     saida.mkdir(parents=True, exist_ok=True)
     acervo = app / "scripts" / "acervo"
@@ -1364,26 +1369,27 @@ def gerar_publico(saida: Path, app: Path, normas: Path):
     shutil.copy2(AQUI / "conferidor.js", saida / "conferidor.js")
 
     carimbo = carimbo_dos_commits(app)
-    publico = AQUI / "conteudo" / "publico"
     entradas = entradas_do_diario(AQUI / "diario")
+    # Tudo o que sai daqui vem de conteudo/publico/: textos escritos para um
+    # estranho. O NORMAS.md e o 01-pecas.md falam com quem mantem o codigo
+    # (caminhos do disco, dado pessoal) e ficam so na pagina privada.
     paginas = [
-        ("aba-porta", "Pórtico", "o que é isto", "index", (publico / "00-porta.md").read_text(encoding="utf-8"),
+        ("aba-porta", "Pórtico", "o que é isto", "index", fonte_publica("00-porta.md"),
          "A porta de trás do Pedra Angular: como o acervo é feito, a norma que ele segue e como contribuir."),
         ("aba-nota", "Nota editorial", "o que o acervo faz com os textos", "nota-editorial",
-         (publico / "nota-editorial.md").read_text(encoding="utf-8"),
+         fonte_publica("nota-editorial.md"),
          "O que o Pedra Angular normaliza e o que preserva nos textos, de onde eles vêm e como citá-los."),
         ("aba-andamento", "Em andamento", "o que está sendo feito", "andamento", andamento_publico_md(hoje),
          "O que está sendo feito no Pedra Angular agora."),
         ("aba-diario", "Diário", "o que foi feito, e por quê", "diario", diario_md(entradas),
          "Diário de bordo do Pedra Angular: o que entrou no acervo e por quê."),
         ("aba-contribuir", "Contribuir", "como mandar um texto", "contribuir",
-         (publico / "contribuir.md").read_text(encoding="utf-8"),
+         fonte_publica("contribuir.md"),
          "O formato de um arquivo do acervo do Pedra Angular, e um conferidor que diz na hora se ele está no padrão."),
-        ("aba-normas", "Normas", "o que toda coisa nova obedece", "normas", normas.read_text(encoding="utf-8"),
-         "As nove leis e as normas numeradas do ecossistema Pedra Angular."),
-        ("aba-pecas", "As peças", "o que existe e o que cada uma faz", "pecas",
-         sem_caminhos((AQUI / "conteudo" / "01-pecas.md").read_text(encoding="utf-8")),
-         "As peças do ecossistema Pedra Angular e o percurso de um texto, do bruto ao leitor."),
+        ("aba-normas", "Normas", "o que toda coisa nova obedece", "normas", fonte_publica("normas.md"),
+         "As nove leis que todo o Pedra Angular segue, e o que elas garantem a quem lê."),
+        ("aba-pecas", "As peças", "o que existe e o que cada uma faz", "pecas", fonte_publica("pecas.md"),
+         "O percurso de um texto no Pedra Angular, do PDF ou da página escaneada até o leitor."),
     ]
 
     todas = []
@@ -1454,13 +1460,12 @@ def main():
 
     app = Path(args.app_leitura) if args.app_leitura else \
         primeiro_que_existe(CANDIDATOS_APP_LEITURA, "a pasta app-leitura")
-    normas = primeiro_que_existe(CANDIDATOS_NORMAS, "o NORMAS.md")
-
     if args.publico:
         # No deploy nao ha C:\Claude\andamento: o site le o andamento_publico.json
         # que a geracao local exportou e o git levou.
-        gerar_publico(Path(args.publico), app, normas)
+        gerar_publico(Path(args.publico), app)
         return
+    normas = primeiro_que_existe(CANDIDATOS_NORMAS, "o NORMAS.md")
     catalogo = primeiro_que_existe(CANDIDATOS_CATALOGO,
                                    "o Catalogo_Formatos_Encadernacao.md")
     styles = app / "src" / "styles.css"
