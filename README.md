@@ -53,6 +53,17 @@ python gerar.py --app-leitura "C:\Users\bruno\Claude\Projects\Projeto Pedra Angu
 - **Capítulo 11** — o que o leitor escolhe (tema, fonte, corpo) fica no
   `localStorage` do próprio navegador dele. Nada sai da máquina.
 
+## Público e privado
+
+A tabela acima é a página **privada** (o artefato). O site público
+(`python gerar.py --publico PASTA`, que o deploy do app-leitura roda) lê **só**
+`conteudo/publico/` e o `andamento_publico.json`. Lá, `normas.md` e `pecas.md`
+são versões escritas para um estranho; o `NORMAS.md` e o `01-pecas.md` nunca
+saem do disco (caminhos locais, dado pessoal, fala dirigida ao autor).
+
+Antes de publicar, a página pública não pode conter caminho do disco (`C:\`),
+fala dirigida ao autor nem dado pessoal. O rodapé não linka o GitHub.
+
 ## Publicar
 
 `index.html` mais a pasta `fonts/` ao lado. Nada mais. Serve em qualquer
