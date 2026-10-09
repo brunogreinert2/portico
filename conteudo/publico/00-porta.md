@@ -18,7 +18,7 @@ que está em andamento e como contribuir.
 
 | Se você quer… | Leia |
 |---|---|
-| entender a regra que tudo segue | [Normas](normas.html) — as nove leis e as normas numeradas |
+| entender a regra que tudo segue | [Normas](normas.html) — as nove leis que tudo segue |
 | mandar um texto para o acervo | [Contribuir](contribuir.html) — o formato, e um conferidor que diz na hora se o arquivo está no padrão |
 | saber o que está sendo feito agora | [Em andamento](andamento.html) e o [Diário](diario.html) |
 | conhecer as peças do ecossistema | [As peças](pecas.html) |
@@ -28,11 +28,11 @@ que está em andamento e como contribuir.
 Leia nesta ordem, em Markdown puro, antes de sugerir ou produzir qualquer coisa
 para o Pedra Angular:
 
-1. [https://pedraangular.app.br/portico/normas.md](https://pedraangular.app.br/portico/normas.md)
-   — a norma inteira. Onde o seu hábito divergir dela, ela vence.
-2. [https://pedraangular.app.br/portico/contribuir.md](https://pedraangular.app.br/portico/contribuir.md)
+1. [https://pedraangular.app.br/portico/contribuir.md](https://pedraangular.app.br/portico/contribuir.md)
    — o formato exato de um arquivo do acervo. Não invente campo, não traduza
    nome de campo, não escreva `null`.
+2. [https://pedraangular.app.br/portico/normas.md](https://pedraangular.app.br/portico/normas.md)
+   — as nove leis.
 3. [https://pedraangular.app.br/portico/andamento.md](https://pedraangular.app.br/portico/andamento.md)
    — o que já está sendo feito, para não refazer.
 

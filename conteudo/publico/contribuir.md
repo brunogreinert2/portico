@@ -5,9 +5,9 @@ domínio público, uma transcrição, uma tradução própria. O que o acervo pe
 um formato só, igual para todas as obras, para que cada uma seja legível por
 gente e por máquina daqui a cem anos.
 
-Esta página é a norma do formato, resumida. A norma completa é o esquema
-[frontmatter.schema.json](frontmatter.schema.json); as regras do texto estão
-em [Normas](normas.html), capítulo 3.
+Esta página é a norma do formato, inteira para quem escreve. A régua que a
+máquina executa é o esquema [frontmatter.schema.json](frontmatter.schema.json),
+mais as regras do texto, logo abaixo, em [Texto](#texto).
 
 ## Confira o seu arquivo aqui
 
@@ -75,7 +75,8 @@ Só esta sintaxe, e nada além:
 - `#`, `##`, `###`… para títulos, sem limite de profundidade;
 - parágrafo: linhas de texto, separadas por uma linha em branco;
 - marcador canônico entre colchetes, um por ponto: `[216a]`, `[1094a1]`,
-  `[1.1]` — nunca `[216] [216a]` no mesmo lugar;
+  `[1.1]` — nunca `[216] [216a]` no mesmo lugar. O marcador é copiado da
+  edição como ela o escreve, sem reformatar: é um endereço;
 - âncora no fim da linha: `texto ^gn-1-1`;
 - etiqueta de idioma no fim da linha, quando a detecção não basta: `^por`,
   `^grc`, `^eng`, `^lat`, `^heb`, `^rus`;
@@ -84,7 +85,8 @@ Só esta sintaxe, e nada além:
 - verso ou poema: dentro de um bloco ` ```verso ` … ` ``` `, onde cada linha
   fica uma linha;
 - interlinear: dentro de ` ```interlinear ` … ` ``` `;
-- imagem: `{{img:id}}` sozinha na linha, ou `![descrição](…)`;
+- imagem: `{{img:id}}` sozinha na linha, ou `![descrição](…)`. Toda imagem
+  tem descrição, para quem não a vê;
 - citação, assinatura ou linha de interlinear: `>` no começo da linha (aparece
   com um risco vertical ao lado). Linhas seguidas dentro do mesmo `>` se juntam
   num parágrafo; para verso, use o bloco ` ```verso `;
@@ -92,6 +94,10 @@ Só esta sintaxe, e nada além:
 
 **Não entra no texto:** tabela, `==realce==`, tag ou comentário HTML/XML, e a
 palavra `null`.
+
+O formato é um só para todo o Pedra Angular. Se alguma parte do ecossistema
+ainda não desenha uma sintaxe da lista, ela a mostra como texto, sem quebrar:
+use a lista inteira sem receio.
 
 ## Licença
 
