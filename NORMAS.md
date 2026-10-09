@@ -1243,16 +1243,3 @@ decoração sem configuração. O parser de três regras em 64 linhas testáveis
 O texto burro com front matter rico. O TTS com os três bugs do Chrome
 contornados e testados. A impressão A4 com orientação derivada do conteúdo.
 O zero gate e a recompensa previsível.
-
----
-
-## O que ficou pendente da sua decisão
-
-Uma só, e ela muda todos os arquivos abaixo dela: **o vocabulário de token do
-N15.** Escrevi a norma com prefixo `--ui-` e nomes em português porque o
-prefixo neutro protege a separação entre o Διαφορεύς e o seu nome real na
-ótica, e porque os nomes portugueses do app-infantil são os mais claros dos
-três conjuntos. Se preferir outro esquema, é só dizer — mas decida antes de
-qualquer refatoração começar, porque trocar depois custa o dobro.
-
-O resto das normas não depende dessa escolha.
