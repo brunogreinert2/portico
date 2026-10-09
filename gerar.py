@@ -988,8 +988,7 @@ def montar(abas, temas_css, fontes_css, embutido: bool, fragmento: bool = False,
     if publico:
         aviso_sem_js = ""
         md = publico.get("md")
-        colofao = (f"Gerado em {publico.get('carimbo') or hoje} pelo <code>gerar.py</code> do repositório "
-                   '<a href="https://github.com/brunogreinert2/portico">portico</a>'
+        colofao = (f"Gerado em {publico.get('carimbo') or hoje} pelo <code>gerar.py</code>"
                    + (f' · o mesmo texto em Markdown: <a href="{md}">{md}</a>' if md else "")
                    + " · zero rede em runtime (LEI 3)")
         script = '<script src="portico.js"></script>'
@@ -1325,8 +1324,7 @@ HTML_CONFERIDOR = """
   <div id="conf-resultado" aria-live="polite"></div>
 </div>
 <p class="so-sem-js-conf">O conferidor precisa de JavaScript. Sem ele, confira
-  pela tabela abaixo, ou rode <code>conferir.py</code> do repositório
-  <a href="https://github.com/brunogreinert2/app-leitura">app-leitura</a>.</p>
+  o arquivo pela tabela e pela lista abaixo.</p>
 """
 
 
