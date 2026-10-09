@@ -407,7 +407,7 @@ TEMAS = [
     ("sepia", "Sépia", "leitura longa"),
     ("amarelo", "Amarelo sobre preto", None),
     ("verde", "Verde sobre preto", None),
-    ("azul-noite", "Azul-noite", "protanomalia"),
+    ("azul-noite", "Azul-noite", "para quem vê pouco o vermelho"),
     ("azul-petroleo", "Azul-petróleo", None),
     ("pergaminho", "Pergaminho", None),
     ("amarelo-azul", "Amarelo sobre azul", None),
