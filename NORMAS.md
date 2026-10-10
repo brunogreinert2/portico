@@ -929,6 +929,13 @@ capítulos aramaicos de Daniel e de Esdras, dentro da Bíblia Hebraica, levam
 `^arc` versículo a versículo; um arquivo inteiro em aramaico (o Targum)
 declara `language: arc` e dispensa a etiqueta.
 
+No leitor (o motor), versículo numerado não vira de lado: em
+`**5** texto ^dn-2-5 ^arc` a etiqueta dá o `lang`, mas o parágrafo continua da
+esquerda para a direita, com o número à esquerda como no resto do livro; quem
+corre da direita para a esquerda é o trecho em letra quadrada. A linha solta
+(interlinear, verso) continua virando. O rolo desenha toda linha em letra
+quadrada da direita para a esquerda, com etiqueta ou sem ela.
+
 A lista de códigos tem de ser **idêntica** nas implementações — `CODIGOS`
 em `parser/motor/idioma.ts`, `ETIQUETAS_IDIOMA` em `gerador_rolo.py` e em
 `validar_corpus.py`.
