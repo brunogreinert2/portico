@@ -865,6 +865,7 @@ como grego.
 | grego antigo | `grc` — nunca `el`, que é o moderno, outra fonética | ltr |
 | grego moderno | `el` | ltr |
 | hebraico | `he` | rtl |
+| aramaico | `arc` — a escrita é a do hebraico; a língua vem do cabeçalho (`language: arc`) ou da etiqueta `^arc` | rtl |
 | latim | `la` | ltr |
 | inglês | `en` | ltr |
 
@@ -900,7 +901,7 @@ sair com sotaque brasileiro. Implementação de referência: `idiomaDoTexto` em
 `parser/motor/idioma.ts` (o motor do ecossistema; cada app
 guarda uma cópia carimbada em `src/motor/`).
 
-**N76 — A etiqueta de idioma: `^por`, `^eng`, `^lat`, `^grc`, `^heb`, `^rus`.**
+**N76 — A etiqueta de idioma: `^por`, `^eng`, `^lat`, `^grc`, `^heb`, `^arc`, `^rus`.**
 No fim da linha, mesma sintaxe da âncora de endereço que o corpus já usa:
 
 ```
@@ -922,8 +923,15 @@ Quatro regras, e as quatro valem em **todas** as superfícies:
    solto, título de duas palavras, e sobretudo o interlinear, onde as linhas
    alternam de língua a cada uma.
 
-A lista de códigos tem de ser **idêntica** nas duas implementações — `CODIGOS`
-em `parser/motor/idioma.ts` e `ETIQUETAS_IDIOMA` em `gerador_rolo.py`.
+`^arc` (2026-10-10) é o caso em que a etiqueta é a ÚNICA fonte da verdade: o
+aramaico usa a escrita do hebraico, e a faixa Unicode não separa os dois. Os
+capítulos aramaicos de Daniel e de Esdras, dentro da Bíblia Hebraica, levam
+`^arc` versículo a versículo; um arquivo inteiro em aramaico (o Targum)
+declara `language: arc` e dispensa a etiqueta.
+
+A lista de códigos tem de ser **idêntica** nas implementações — `CODIGOS`
+em `parser/motor/idioma.ts`, `ETIQUETAS_IDIOMA` em `gerador_rolo.py` e em
+`validar_corpus.py`.
 É o mesmo arquivo `.md` sendo lido nas duas superfícies; uma lista que diverge
 faz o app e o rolo lerem o mesmo texto em vozes diferentes.
 
