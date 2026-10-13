@@ -11,7 +11,7 @@ artigo, com as notas do autor.
 Para mim é um grande prazer pegar um livro como esse, de uma pessoa ilustre, e
 deixá-lo assim, em texto puro (UTF-8), aberto à leitura das pessoas e das LLMs.
 O Claude, que me ajudou, foi o primeiro a ler estes livros: antes, o PDF
-digitalizado era inacessível para uma LLM e para uma parte considerável dos
+digitalizado era quase inacessível para uma LLM e para uma parte considerável dos
 seres humanos.
 
 Em breve trago, também de Silvestre, a tradução das *Categorias* de
