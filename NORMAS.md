@@ -20,6 +20,9 @@ passam para o Capítulo 14; **todo o resto vale para o ecossistema inteiro.**
 Versão 4 · 2026-10-01 · LEI 9, AI FIRST: a pessoa e a IA dela pilotam as
 mesmas ferramentas, e toda ferramenta ensina como ser pilotada.
 
+Versão 5 · 2026-10-13 · A marca de página entra na tabela do formato (N7) e
+ganha norma própria (N80): a página é a do fac-símile, contada da capa.
+
 Escopo verificado: `C:\Claude\app-leitura`, `C:\Claude\app-infantil`,
 `C:\Claude\Rolo_HTML` e `C:\Claude\oficina`. A Oficina nasceu conforme em
 2026-08-09 (`github.com/brunogreinert2/oficina`) e é hoje a referência de
@@ -357,9 +360,11 @@ serve para qualquer outro. A sintaxe comum:
 | `[^n]` e `[^n]: nota` no fim | nota |
 | `^id` e `^por`, `^grc`… no fim da linha | âncora (N12) e idioma (N76) |
 | `[216a]`, `[1.1]` | marcador canônico (N11) |
+| `<!-- pa:pagina N -->` | marca de página da edição de origem (N80) |
 | bloco ` ```verso ` ou ` ```interlinear ` | uma linha do arquivo, uma linha na tela |
 
-Fora do formato: tabela, `==realce==`, HTML/XML e a palavra `null` vazada. A
+Fora do formato: tabela, `==realce==`, HTML/XML (a marca de página do N80 é a
+única exceção) e a palavra `null` vazada. A
 régua executável é o esquema e o validador do acervo
 (`app-leitura/scripts/acervo/frontmatter.schema.json` e `validar_corpus.py`),
 que o conferidor do Pórtico usa no navegador.
@@ -389,6 +394,51 @@ com 8 níveis, `ProvaDeFogo` com 17.
 
 **N12.** Âncora `^id` no markdown vira `id="id"` no HTML, nos dois sentidos e
 nas duas camadas. Sujeita à Lei 6.
+
+**N80 — A página é a do fac-símile, contada da capa.** A marca de página se
+escreve `<!-- pa:pagina N -->`, e N é a página do PDF (ou da pilha de imagens)
+de onde o texto saiu: a capa é a 1, a folha de rosto vem logo depois, e o livro
+começa onde começar — na 20, se for na 20.
+
+> Não tem muito sentido, não é um número fixo: «o número no sumário + 8 = o
+> número do PDF». Os dois números têm de convergir. A capa vai ser a número 1.
+> O livro mesmo, se tiver que começar lá na página 20, que comece na 20, e os
+> sumários que lutem.
+>
+> — Διαφορεύς, 2026-10-13
+
+É uma tradição quebrada de propósito. O fólio impresso recomeça, pula, muda de
+romano para arábico e não diz onde a coisa está no arquivo que se tem na mão.
+Quem quer achar um livro numa Bíblia fac-símile de 1200 páginas, ou recortar a
+imagem de uma página, precisa do número que o PDF mostra — e é esse que o
+texto marca.
+
+Cinco regras:
+
+1. **N é sempre a página do fac-símile.** Nunca se renumera a marca para o
+   fólio impresso, nem se desconta a capa, a guarda ou a folha em branco.
+2. **A marca fica no ponto exato da virada.** Sozinha na linha, entre duas
+   palavras, ou colada no meio da palavra que a página cortou:
+   `pala<!-- pa:pagina 02 -->vra`. É o único lugar que não mente.
+3. **A marca não é sujeira.** O Conversor e o Corretor a escrevem e a protegem;
+   o portão do acervo a aceita (é a única exceção da regra C02); o Gerador a
+   desenha como `[p. 01]`; o motor de leitura e o rolo não a mostram como
+   texto. Nenhuma ferramenta a apaga para «limpar».
+4. **O fólio impresso é informação, não endereço.** Pode ficar anotado ao lado
+   — a correspondência entre a página do fac-símile e o número impresso —,
+   para quem cita pelo livro de papel. Nunca toma o lugar do N.
+5. **O sumário do impresso não vale como sumário.** Os números dele são fólios
+   de um objeto que o leitor não tem. O sumário de uma obra do ecossistema se
+   monta sozinho, dos cabeçalhos (N10); o do impresso sai, ou fica como
+   documento, sem os pontilhados.
+
+**Estado hoje (2026-10-13):** em vigor no acervo desde o *Manual do Cidadão*
+de Silvestre Pinheiro Ferreira (três tomos, 797 marcas). O validador do acervo
+barrava a marca como HTML até esse dia; o rolo a escrevia no texto quando ela
+vinha no meio do parágrafo. Os dois consertos estão em `app-leitura` `37ee56d`,
+e o motor tem o caso de tortura `52b`. **Pendente:** nenhuma superfície de
+leitura (app, rolo) desenha a página ainda — só o Gerador; e a correspondência
+com o fólio impresso (regra 4) ainda não tem lugar no front matter.
 
 **Estado hoje (2026-09-30):** cada app tem o parser do seu uso, e nenhum é "o
 certo" do outro. O app-leitura (`remark`) e o rolo desenham o formato quase
@@ -1220,6 +1270,9 @@ não se violam, mesmo com pedido explícito para "só desta vez":
 18. Nunca contornar em silêncio uma ferramenta do ecossistema: use-a antes do
     "seu jeito", e o que ela não souber fazer vira proposta de capacidade nela
     (LEI 9).
+19. Nunca apagar, deslocar ou renumerar a marca de página
+    `<!-- pa:pagina N -->`: N é a página do fac-símile, contada da capa, e
+    não o fólio impresso (N80).
 
 Antes de mexer em aparência, leia este arquivo inteiro. Antes de concluir,
 rode o N58.

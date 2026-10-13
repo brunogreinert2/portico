@@ -90,10 +90,15 @@ Só esta sintaxe, e nada além:
 - citação, assinatura ou linha de interlinear: `>` no começo da linha (aparece
   com um risco vertical ao lado). Linhas seguidas dentro do mesmo `>` se juntam
   num parágrafo; para verso, use o bloco ` ```verso `;
-- ligação a um personagem ou a outra obra: `[[Nome]]` (wikilink).
+- ligação a um personagem ou a outra obra: `[[Nome]]` (wikilink);
+- marca de página, quando o texto vem de um livro digitalizado:
+  `<!-- pa:pagina 28 -->` no ponto exato em que a página vira — sozinha na
+  linha, entre duas palavras, ou colada no meio da palavra que a página cortou
+  (`pala<!-- pa:pagina 28 -->vra`). O número é o da página do PDF, contando da
+  capa: a capa é a 1. Não é o número impresso no alto da folha.
 
-**Não entra no texto:** tabela, `==realce==`, tag ou comentário HTML/XML, e a
-palavra `null`.
+**Não entra no texto:** tabela, `==realce==`, qualquer outra tag ou comentário
+HTML/XML, e a palavra `null`.
 
 O formato é um só para todo o Pedra Angular. Se alguma parte do ecossistema
 ainda não desenha uma sintaxe da lista, ela a mostra como texto, sem quebrar:
