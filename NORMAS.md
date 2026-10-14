@@ -21,7 +21,8 @@ Versão 4 · 2026-10-01 · LEI 9, AI FIRST: a pessoa e a IA dela pilotam as
 mesmas ferramentas, e toda ferramenta ensina como ser pilotada.
 
 Versão 5 · 2026-10-13 · A marca de página entra na tabela do formato (N7) e
-ganha norma própria (N80): a página é a do fac-símile, contada da capa.
+ganha norma própria (N80): a página é a do fac-símile, contada da capa. A nota
+escrita por uma IA ganha a sua (N81): `[^7IA]`.
 
 Escopo verificado: `C:\Claude\app-leitura`, `C:\Claude\app-infantil`,
 `C:\Claude\Rolo_HTML` e `C:\Claude\oficina`. A Oficina nasceu conforme em
@@ -357,7 +358,7 @@ serve para qualquer outro. A sintaxe comum:
 | `> texto` | citação, assinatura (`> Ὁ Διαφορεύς παρῆν`), linha de interlinear |
 | `[[Nome]]` | ligação a um personagem ou a outra obra (wikilink) |
 | `![descrição](caminho)` ou `{{img:id}}` sozinha na linha | imagem |
-| `[^n]` e `[^n]: nota` no fim | nota |
+| `[^n]` e `[^n]: nota` no fim | nota; `[^7IA]` é nota escrita por uma IA (N81) |
 | `^id` e `^por`, `^grc`… no fim da linha | âncora (N12) e idioma (N76) |
 | `[216a]`, `[1.1]` | marcador canônico (N11) |
 | `<!-- pa:pagina N -->` | marca de página da edição de origem (N80) |
@@ -432,7 +433,35 @@ Cinco regras:
    monta sozinho, dos cabeçalhos (N10); o do impresso sai, ou fica como
    documento, sem os pontilhados.
 
-**Estado hoje (2026-10-13):** em vigor no acervo desde o *Manual do Cidadão*
+**N81 — A nota da IA se assina: `[^7IA]`.** Quando um modelo, trabalhando num
+texto (traduzindo, transcrevendo, conferindo), lembra de algo que vale dizer ao
+leitor, ou lê no fac-símile alguma coisa que não está no texto, ele escreve uma
+nota de rodapé com o número seguido de `IA`: `[^7IA]` no ponto do texto, e
+`[^7IA]: texto da nota` junto das outras definições.
+
+> A IA estava lá bem feliz trabalhando num texto, e «lembrou de algo
+> interessante a respeito do assunto» e criou ali uma nota de rodapé.
+>
+> — Διαφορεύς, 2026-10-13
+
+Três regras:
+
+1. **O sufixo é a assinatura.** Quem lê sabe, pelo rótulo, que aquela nota não
+   é do autor, nem do tradutor, nem do Διαφορεύς. Os outros escopos continuam:
+   `[^1]` (nota do autor ou do tradutor da edição), `[^intro1]`, `[^ap1]`,
+   `[^pa1]` (nota do Διαφορεύς ou do preparo do Pedra Angular).
+2. **A IA não escreve a opinião dela dentro do texto de ninguém.** O que ela
+   tem a dizer vai na nota, com o que viu e onde viu; o texto fica como o
+   autor o deixou.
+3. **O modelo se nomeia em `processing`**, com nome e versão, como sempre.
+
+**Estado hoje (2026-10-13):** a marca já era usada em traduções feitas em
+outras conversas e não estava escrita em lugar nenhum — o Guardião a procurou
+no acervo e nas normas e não achou. Primeira no acervo: `[^1IA]` nas
+*Categorias* de 1814 (o exemplar encadernado com outras obras). O validador, o
+rolo e o motor aceitam o rótulo como qualquer outra nota.
+
+**Estado da N80 (2026-10-13):** em vigor no acervo desde o *Manual do Cidadão*
 de Silvestre Pinheiro Ferreira (três tomos, 797 marcas). O validador do acervo
 barrava a marca como HTML até esse dia; o rolo a escrevia no texto quando ela
 vinha no meio do parágrafo. Os dois consertos estão em `app-leitura` `37ee56d`,
