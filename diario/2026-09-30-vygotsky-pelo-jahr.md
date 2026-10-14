@@ -22,3 +22,5 @@ diferença.
 
 A edição não diz quem traduziu; o acervo registra isso assim mesmo, sem
 adivinhar. Para ler: [o rolo da obra](https://pedraangular.app.br/rolo/vygotsky-pensamento-e-linguagem-pt-anonimo-2001.html).
+
+> Ὁ Διαφορεύς παρῆν

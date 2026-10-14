@@ -24,3 +24,5 @@ apagar, ele oferece uma cópia, e só apaga depois de uma segunda confirmação 
 diz quantos textos vão sair. As preferências de leitura ficam.
 
 Daqui em diante, o que aparecer neste diário são os textos que entram.
+
+> Ὁ Διαφορεύς παρῆν

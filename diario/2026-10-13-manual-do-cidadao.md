@@ -57,3 +57,5 @@ O sumário será refeito, portanto, com base nessa nova numeração.
 
 Na biblioteca: Filosofia › Português › Liberalismo › Silvestre Pinheiro
 Ferreira.
+
+> Ὁ Διαφορεύς παρῆν

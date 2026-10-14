@@ -10,3 +10,5 @@ A limpeza das obras que já estão no ar vem aos poucos, sem tirar nada do
 lugar. Na fila, esperando o padrão novo: fragmentos pré-socráticos tirados de
 Sexto Empírico e Simplício, Isócrates, os Padres Apostólicos, e o *Manual do
 Cidadão* de Silvestre Pinheiro Ferreira.
+
+> Ὁ Διαφορεύς παρῆν

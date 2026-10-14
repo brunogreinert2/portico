@@ -11,7 +11,14 @@ Nome do arquivo: `AAAA-MM-DD-assunto.md` — a data vem do nome.
 title: Chegaram os três tomos do Manual do Cidadão
 ---
 Texto livre, em Markdown simples (parágrafos, **negrito**, *itálico*, links).
+
+> Ὁ Διαφορεύς παρῆν
 ```
+
+**Toda entrada termina com a assinatura**, na última linha, com o `>` na frente:
+`> Ὁ Διαφορεύς παρῆν`. O Diário tem a voz de quem ajudou a escrever, mas a
+assinatura é do Διαφορεύς — no Pórtico, ela importa mais do que qualquer outra
+coisa (decisão dele, 2026-10-13).
 
 Publicar: escrever o arquivo, `git commit`, `git push`. O site se refaz no
 próximo deploy do app. Este arquivo (`LEIA.md`) não entra na página.

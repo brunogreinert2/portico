@@ -17,3 +17,5 @@ diferença entre o programa saber e não saber o que tem na frente.
 
 Na biblioteca: Bíblias › Aramaico. Os endereços de sempre continuam valendo —
 quem guardou um link para Daniel 3 chega no mesmo lugar.
+
+> Ὁ Διαφορεύς παρῆν
