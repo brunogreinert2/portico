@@ -15,9 +15,9 @@
   },
   {
    "frente": "Fila de entrada no corpus (pré-socráticos, Isócrates, Padres Apostólicos, Epicuro)",
-   "estado": "na fila",
-   "tocado_em": "2026-09-30",
-   "nota": "Fragmentos pré-socráticos, Isócrates completo, os Padres Apostólicos, Epicuro, Sexto Empírico e Simplício, prontos para entrar no acervo."
+   "estado": "concluído",
+   "tocado_em": "2026-10-15",
+   "nota": "Os fragmentos pré-socráticos, Isócrates completo, os Padres Apostólicos, Epicuro, Sexto Empírico e Simplício já estão no acervo."
   },
   {
    "frente": "Marcgrave — Historia Naturalis Brasiliae (1648)",
@@ -32,20 +32,26 @@
    "nota": "O servidor que deixa qualquer IA buscar e ler no acervo: diagnosticar as falhas intermitentes."
   },
   {
+   "frente": "Plano Grego — a filosofia grega do First1KGreek e do Perseus",
+   "estado": "esperando Diaphoreus",
+   "tocado_em": "2026-10-15",
+   "nota": "239 obras de filosofia grega, em seis ondas, entraram no acervo: pré-socráticos, sofistas, Sócrates e os socráticos, Platão, Aristóteles, helenísticos e a antiguidade tardia, com a numeração das edições como endereço."
+  },
+  {
    "frente": "Pórtico público, com diário de bordo",
    "estado": "em curso",
-   "tocado_em": "2026-10-09",
+   "tocado_em": "2026-10-15",
    "nota": "Este Pórtico, aberto ao público, com o diário de bordo."
   },
   {
    "frente": "Saneamento do corpus (URN, metadados, conversor TEI)",
    "estado": "em curso",
-   "tocado_em": "2026-09-30",
-   "nota": "As 1.109 obras estão na norma, cada uma com URN, citação pronta e BibTeX; o acervo tem versão 1.0 e DOI 10.5281/zenodo.23068915."
+   "tocado_em": "2026-10-15",
+   "nota": "O catálogo tem 1.385 obras, cada uma entrada pelo portão da norma, com URN, citação pronta e BibTeX; o acervo tem versão 1.0 e DOI 10.5281/zenodo.23068915."
   },
   {
    "frente": "Silvestre Pinheiro Ferreira — Manual do Cidadão e Categorias",
-   "estado": "esperando Bruno",
+   "estado": "esperando Diaphoreus",
    "tocado_em": "2026-10-13",
    "nota": "Estão no acervo os três tomos do Manual do Cidadão em um Governo Representativo (Paris, 1834) e a tradução das Categorias de Aristóteles (Rio de Janeiro, 1814), com a ortografia das edições. Faltam os índices alfabéticos e os mapas do Tomo III do Manual, e a edição bilíngue das Categorias."
   }

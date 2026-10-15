@@ -146,7 +146,7 @@ def tirar_front_matter(texto: str) -> str:
 # la). Aqui so se le, valida e ordena; o texto e das fichas.
 # --------------------------------------------------------------------------
 
-ESTADOS = ["esperando Bruno", "em curso", "na fila", "parado", "concluído"]
+ESTADOS = ["esperando Diaphoreus", "em curso", "na fila", "parado", "concluído"]
 CAMPOS_OBRIGATORIOS = ["frente", "estado", "onde", "proximo", "tocado_em"]
 
 
