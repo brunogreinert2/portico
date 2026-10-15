@@ -10,8 +10,8 @@
   {
    "frente": "Encheirídion — tradução para o português",
    "estado": "em curso",
-   "tocado_em": "2026-09-29",
-   "nota": "Tradução do grego para o português, capítulo a capítulo. Onze capítulos prontos."
+   "tocado_em": "2026-10-15",
+   "nota": "Tradução do grego para o português: os 53 capítulos estão traduzidos e em revisão."
   },
   {
    "frente": "Fila de entrada no corpus (pré-socráticos, Isócrates, Padres Apostólicos, Epicuro)",
@@ -39,21 +39,21 @@
   },
   {
    "frente": "Pórtico público, com diário de bordo",
-   "estado": "em curso",
+   "estado": "concluído",
    "tocado_em": "2026-10-15",
    "nota": "Este Pórtico, aberto ao público, com o diário de bordo."
   },
   {
    "frente": "Saneamento do corpus (URN, metadados, conversor TEI)",
-   "estado": "em curso",
+   "estado": "concluído",
    "tocado_em": "2026-10-15",
    "nota": "O catálogo tem 1.385 obras, cada uma entrada pelo portão da norma, com URN, citação pronta e BibTeX; o acervo tem versão 1.0 e DOI 10.5281/zenodo.23068915."
   },
   {
    "frente": "Silvestre Pinheiro Ferreira — Manual do Cidadão e Categorias",
-   "estado": "esperando Diaphoreus",
-   "tocado_em": "2026-10-13",
-   "nota": "Estão no acervo os três tomos do Manual do Cidadão em um Governo Representativo (Paris, 1834) e a tradução das Categorias de Aristóteles (Rio de Janeiro, 1814), com a ortografia das edições. Faltam os índices alfabéticos e os mapas do Tomo III do Manual, e a edição bilíngue das Categorias."
+   "estado": "em curso",
+   "tocado_em": "2026-10-15",
+   "nota": "Estão no acervo os três tomos do Manual do Cidadão em um Governo Representativo (Paris, 1834) e a tradução das Categorias de Aristóteles (Rio de Janeiro, 1814), com a ortografia das edições. Em preparo: as Prelecções Philosóphicas (OCR feito, falta revisar e formatar). Faltam os índices alfabéticos e os mapas do Tomo III do Manual, e a edição bilíngue das Categorias."
   }
  ]
 }
