@@ -228,7 +228,7 @@
     var dentroCerca = null;
     corpo.split('\n').forEach(function (linha, idx) {
       var i = idx + desloc + 1;
-      var c = ctx.cerca.exec(linha);
+      var c = ctx.cerca.exec(linha.replace(/\r$/, '')); // CRLF: o . do JS não casa com \r (o do Python casa)
       if (c) {
         if (dentroCerca === null) {
           dentroCerca = c[1].trim();
@@ -239,6 +239,8 @@
       // D24: entre crases é código citado numa nota editorial, não vazamento
       var semCodigo = ctx.codigo ? linha.replace(ctx.codigo, '') : linha;
       ctx.linha.forEach(function (r) {
+        // dentro de ```verso e ```interlinear não há tabela nem realce (validar_corpus.IGNORA_NA_CERCA)
+        if (dentroCerca !== null && (ctx.regras.ignora_na_cerca || []).indexOf(r.codigo) >= 0) return;
         var alvo = ctx.ignoraCodigo.indexOf(r.codigo) >= 0 ? semCodigo : linha;
         var mm = r.rx.exec(alvo);
         if (mm) {
