@@ -355,6 +355,7 @@ serve para qualquer outro. A sintaxe comum:
 | --- | --- |
 | `#{1,}` seguido de espaço e texto | cabeçalho, profundidade arbitrária (N10) |
 | linha não vazia | parágrafo (CommonMark) |
+| `*itálico*` e `**negrito**` | a ênfase do impresso (título de obra, termo, grifo do autor); nunca se tira |
 | `> texto` | citação, assinatura (`> Ὁ Διαφορεύς παρῆν`), linha de interlinear |
 | `[[Nome]]` | ligação a um personagem ou a outra obra (wikilink) |
 | `![descrição](caminho)` ou `{{img:id}}` sozinha na linha | imagem |
