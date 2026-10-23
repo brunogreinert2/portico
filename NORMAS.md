@@ -362,6 +362,7 @@ serve para qualquer outro. A sintaxe comum:
 | `[^n]` e `[^n]: nota` no fim | nota; `[^7IA]` é nota escrita por uma IA (N81) |
 | `^id` e `^por`, `^grc`… no fim da linha | âncora (N12) e idioma (N76) |
 | `[216a]`, `[1.1]` | marcador canônico (N11) |
+| `\[582]` (contrabarra antes do colchete) | número entre colchetes que não é endereço — uma data, a numeração de outro editor: aparece «[582]», como texto comum, sem virar marcador |
 | `<!-- pa:pagina N -->` | marca de página da edição de origem (N80) |
 | bloco ` ```verso ` ou ` ```interlinear ` | uma linha do arquivo, uma linha na tela |
 
