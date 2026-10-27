@@ -90,6 +90,9 @@ Só esta sintaxe, e nada além:
 - citação, assinatura ou linha de interlinear: `>` no começo da linha (aparece
   com um risco vertical ao lado). Linhas seguidas dentro do mesmo `>` se juntam
   num parágrafo; para verso, use o bloco ` ```verso `;
+- contrabarra antes de um sinal, para ele aparecer como sinal e não fazer o
+  que faria (o escape do CommonMark): `\[582]` é uma data, não um marcador;
+  `\*` é um asterisco, não itálico; `\<` é um sinal de menor, não uma etiqueta;
 - ligação a um personagem ou a outra obra: `[[Nome]]` (wikilink);
 - marca de página, quando o texto vem de um livro digitalizado:
   `<!-- pa:pagina 28 -->` no ponto exato em que a página vira — sozinha na

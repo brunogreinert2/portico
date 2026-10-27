@@ -362,7 +362,7 @@ serve para qualquer outro. A sintaxe comum:
 | `[^n]` e `[^n]: nota` no fim | nota; `[^7IA]` é nota escrita por uma IA (N81) |
 | `^id` e `^por`, `^grc`… no fim da linha | âncora (N12) e idioma (N76) |
 | `[216a]`, `[1.1]` | marcador canônico (N11) |
-| `\[582]` (contrabarra antes do colchete) | número entre colchetes que não é endereço — uma data, a numeração de outro editor: aparece «[582]», como texto comum, sem virar marcador |
+| `\` antes de qualquer sinal de pontuação ASCII: `\[582]`, `\*`, `\<`, `\_`, `\#`, `\&`, `\\` | o escape do CommonMark: o sinal aparece como texto comum e não faz o que faria — `\[582]` não vira marcador (uma data, a numeração de outro editor), `\*` não abre itálico, `\<` não abre etiqueta; `\\` é uma contrabarra. Antes de letra, a contrabarra é só contrabarra |
 | `<!-- pa:pagina N -->` | marca de página da edição de origem (N80) |
 | bloco ` ```verso ` ou ` ```interlinear ` | uma linha do arquivo, uma linha na tela |
 
@@ -477,6 +477,18 @@ inteiro; falta a imagem (`{{img:id}}` e `![]()`), que chega com as obras
 ilustradas (Piso & Marcgrave). O app-infantil (`src/motor/parser.ts`) desenha
 cabeçalho, imagem e parágrafo; `>` e wikilink aparecem como texto até um
 livrinho pedir por eles.
+
+**Estado do escape (2026-10-27):** a contrabarra é o escape do CommonMark, para
+qualquer sinal de pontuação ASCII (Διαφορεύς: «de uma vez por todas»). Era só o
+`\[` (2026-10-23, o Diels). O motor (`remark`) sempre soube — caso de tortura
+`11c`; o rolo aprendeu agora (`scripts/rolo/teste_escape.py`) e desenha como o
+app, inclusive o `[FHG III 2\*]` do Diels, que saía com a contrabarra; e a C02
+do portão deixou de barrar `\<` e `\&` (`teste_escape_c02.py`). Uma obra
+mudou de endereço com isso: no Cassiodoro, marcadores escritos dentro de código
+contavam como primeira ocorrência no rolo; os 8 ids publicados ganharam
+apelido. Nasceu do Elogio de Helena (trad. Cavalcante), cujo `<ou capturada
+pelo amor>` sumia da tela como etiqueta HTML — e ali, por decisão do dono, o
+suplemento virou `⟨ ⟩`, o sinal editorial das edições.
 
 ---
 
