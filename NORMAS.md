@@ -24,6 +24,10 @@ Versão 5 · 2026-10-13 · A marca de página entra na tabela do formato (N7) e
 ganha norma própria (N80): a página é a do fac-símile, contada da capa. A nota
 escrita por uma IA ganha a sua (N81): `[^7IA]`.
 
+Versão 6 · 2026-10-27 · A contrabarra é o escape do CommonMark para qualquer
+sinal (N7). A interlinear do Pedra Angular ganha norma própria (N82): é
+unidade por unidade, cada lado inteiro, nunca palavra por palavra.
+
 Escopo verificado: `C:\Claude\app-leitura`, `C:\Claude\app-infantil`,
 `C:\Claude\Rolo_HTML` e `C:\Claude\oficina`. A Oficina nasceu conforme em
 2026-08-09 (`github.com/brunogreinert2/oficina`) e é hoje a referência de
@@ -462,6 +466,78 @@ outras conversas e não estava escrita em lugar nenhum — o Guardião a procuro
 no acervo e nas normas e não achou. Primeira no acervo: `[^1IA]` nas
 *Categorias* de 1814 (o exemplar encadernado com outras obras). O validador, o
 rolo e o motor aceitam o rótulo como qualquer outra nota.
+
+**N82 — Interlinear, no Pedra Angular, é unidade por unidade.** Quando o
+Διαφορεύς diz «interlinear», é sempre este jeito: o original e a tradução,
+**cada um inteiro**, unidade por unidade da edição — a seção, o fragmento, o
+capítulo numerado —, o original em cima e a tradução embaixo, na ordem da
+obra. **Não** é a glosa palavra por palavra, nem a tradução cortada frase a
+frase e alinhada ao original.
+
+> Interlinear, é sempre o meu jeito de interlinear. (…) Precisamos estar
+> sempre na «mesma página».
+>
+> — Διαφορεύς, 2026-10-27
+
+O molde, como está no *Contra os Sofistas* de Isócrates (trad. Lacerda) e nos
+*Fragmentos* de Empédocles (trad. Palavro):
+
+````
+# Contra os Sofistas (Grego–Português)
+
+## § 1
+
+**Grego**
+
+> [1] Εἰ πάντες ἤθελον οἱ παιδεύειν ἐπιχειροῦντες …
+>
+> Τίς γὰρ οὐκ ἂν μισήσειεν …
+^grc
+
+**Português**
+
+> [1] Se todos aqueles que intentam educar quisessem …
+>
+> Ora, primeiramente, quem não odiaria …
+^por
+````
+
+Sete regras:
+
+1. **A unidade é a da edição**, e cada uma é um `##`: `§ 1` para seção,
+   `fr. 1 [112DK]` para fragmento (a numeração da edição, e a de Diels-Kranz
+   entre colchetes). O título leva as línguas: `(Grego–Português)`.
+2. **Dentro da unidade, um rótulo em negrito por língua** — `**Grego**`,
+   `**Português**` —, e embaixo de cada um o texto inteiro daquela unidade
+   como citação (`>`), terminando com a etiqueta de idioma na linha seguinte
+   (`^grc`, `^por`, N76). Parágrafo dentro da unidade: `>` sozinho na linha.
+   Verso: uma linha `>` por verso.
+3. **O original vem primeiro**, a tradução depois. Texto transmitido noutra
+   língua ganha rótulo e etiqueta próprios (`**Latim**` `^lat`,
+   `**Armênio**`), como na edição.
+4. **Cada lado fica inteiro e na ordem dele.** Nada se corta nem se reescreve
+   para caber ao lado do outro; o marcador `[n]` vai no começo dos dois e é
+   o mesmo (N11).
+5. **As notas são as das edições**, `[^n]` com a numeração delas, e as
+   definições vão juntas no fim do arquivo.
+6. **O arquivo mora em `Interlineares_<Língua>`** (`Interlineares_Grego`),
+   na corrente do autor; o nome leva as duas línguas
+   (`Isocrates_Contra_os_Sofistas_grc-pt_Lacerda_2018.md`, id
+   `…-grc-pt-…`). No front matter: `type: interlinear`, `language` em lista
+   (`grc`, `por`), e `related` aponta para o original e para a tradução
+   sozinhos, que continuam no acervo como obras próprias.
+7. **A licença é a de cada lado**, e o `processing` diz de onde veio cada
+   um. Quando os lados têm licenças que não cabem num campo só (um
+   SemDerivações ao lado de um CompartilhaIgual), a decisão é do dono.
+
+**Estado hoje (2026-10-27):** cinco interlineares nesse jeito — Isócrates,
+Alcídamas, Empédocles, Parmênides e Xenófanes. O *Eclesiastes* hebraico
+(`Interlineares_Hebraico`, cap. 1) é um piloto de 2026-09-30, verso a verso,
+anterior a esta norma. O bloco ` ```interlinear ` da tabela do N7 é outra
+coisa (uma linha do arquivo, uma linha na tela) e nenhuma interlinear do
+acervo o usa. **Pendente:** o *Elogio de Helena* de Górgias (trad. Cavalcante)
+é CC BY-NC-ND 4.0; se ele entra em interlinear, é decisão do dono — o caminho
+seguro é a autorização da revista, que tem os direitos.
 
 **Estado da N80 (2026-10-13):** em vigor no acervo desde o *Manual do Cidadão*
 de Silvestre Pinheiro Ferreira (três tomos, 797 marcas). O validador do acervo
