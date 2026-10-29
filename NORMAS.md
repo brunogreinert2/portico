@@ -28,6 +28,10 @@ Versão 6 · 2026-10-27 · A contrabarra é o escape do CommonMark para qualquer
 sinal (N7). A interlinear do Pedra Angular ganha norma própria (N82): é
 unidade por unidade, cada lado inteiro, nunca palavra por palavra.
 
+Versão 7 · 2026-10-29 · A tabela do GFM entra no formato (N7), promovida do
+anel de Leitura quando um livro a pediu: as colunas «Erros · Emendas» das
+erratas de 1814 na edição de Buzelli das *Categorias* (decisão do Διαφορεύς).
+
 Escopo verificado: `C:\Claude\app-leitura`, `C:\Claude\app-infantil`,
 `C:\Claude\Rolo_HTML` e `C:\Claude\oficina`. A Oficina nasceu conforme em
 2026-08-09 (`github.com/brunogreinert2/oficina`) e é hoje a referência de
@@ -369,8 +373,9 @@ serve para qualquer outro. A sintaxe comum:
 | `\` antes de qualquer sinal de pontuação ASCII: `\[582]`, `\*`, `\<`, `\_`, `\#`, `\&`, `\\` | o escape do CommonMark: o sinal aparece como texto comum e não faz o que faria — `\[582]` não vira marcador (uma data, a numeração de outro editor), `\*` não abre itálico, `\<` não abre etiqueta; `\\` é uma contrabarra. Antes de letra, a contrabarra é só contrabarra |
 | `<!-- pa:pagina N -->` | marca de página da edição de origem (N80) |
 | bloco ` ```verso ` ou ` ```interlinear ` | uma linha do arquivo, uma linha na tela |
+| `\| a \| b \|` com a linha `\|---\|---\|` embaixo da primeira | tabela (GFM), quando o impresso tem colunas de verdade (erratas, quadros, listas de variantes); nunca para diagramar prosa |
 
-Fora do formato: tabela, `==realce==`, HTML/XML (a marca de página do N80 é a
+Fora do formato: `==realce==`, HTML/XML (a marca de página do N80 é a
 única exceção) e a palavra `null` vazada. A
 régua executável é o esquema e o validador do acervo
 (`app-leitura/scripts/acervo/frontmatter.schema.json` e `validar_corpus.py`),
@@ -1310,7 +1315,7 @@ Instantâneo de 2026-08-08, para saber por onde começar.
 | **LEI 8 / N60–N66 barra angular** | parcial (tem os 4, aparência divergente) | **viola** (sem Φ, sem Ξ) | **referência** |
 | **Oficina** (superfície nova, 2026-08-09) | cumpre LEI 8, LEI 1/2, LEI 3, N13–N14, N21, N26, N29, N31, N36, N38 — nasceu conforme | | |
 | N1 três camadas | cumpre | **viola** | é a camada 2 |
-| N7 formato único (revisto 2026-09-30) | quase todo (falta imagem) | parcial (sem `>`, wikilink) | quase todo (falta imagem) |
+| N7 formato único (revisto 2026-09-30) | quase todo (falta imagem) | parcial (sem `>`, wikilink) | quase todo (falta imagem; a tabela, desde 2026-10-29, sai como texto) |
 | N10 profundidade sem teto | cumpre | cumpre | cumpre |
 | N14–15 vocabulário de token | divergente | divergente | divergente |
 | N18 paleta única | **viola** | cumpre | cumpre |
