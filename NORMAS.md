@@ -32,6 +32,12 @@ Versão 7 · 2026-10-29 · A tabela do GFM entra no formato (N7), promovida do
 anel de Leitura quando um livro a pediu: as colunas «Erros · Emendas» das
 erratas de 1814 na edição de Buzelli das *Categorias* (decisão do Διαφορεύς).
 
+Versão 8 · 2026-11-03 · Os padrões de fora (N83, Capítulo 15): onde existe
+padrão estabelecido, segue-se o padrão, e a norma o cita em vez de enumerar
+valores. A etiqueta de idioma (N76) passa a ser qualquer código da ISO 639-3,
+e o endereço leva sempre número ou hífen. O front matter de arquivo novo é
+todo em inglês, inclusive a prosa (decisão do Διαφορεύς).
+
 Escopo verificado: `C:\Claude\app-leitura`, `C:\Claude\app-infantil`,
 `C:\Claude\Rolo_HTML` e `C:\Claude\oficina`. A Oficina nasceu conforme em
 2026-08-09 (`github.com/brunogreinert2/oficina`) e é hoje a referência de
@@ -1075,7 +1081,7 @@ sair com sotaque brasileiro. Implementação de referência: `idiomaDoTexto` em
 `parser/motor/idioma.ts` (o motor do ecossistema; cada app
 guarda uma cópia carimbada em `src/motor/`).
 
-**N76 — A etiqueta de idioma: `^por`, `^eng`, `^lat`, `^grc`, `^heb`, `^arc`, `^rus`, `^deu`.**
+**N76 — A etiqueta de idioma é um código ISO 639-3 no fim da linha: `^por`, `^grc`, `^deu`…**
 No fim da linha, mesma sintaxe da âncora de endereço que o corpus já usa:
 
 ```
@@ -1087,10 +1093,16 @@ Linha com endereço e idioma. ^gn-1-1 ^eng
 Quatro regras, e as quatro valem em **todas** as superfícies:
 
 1. **Escrito vence inferido.** Havendo etiqueta, a detecção nem é consultada.
-2. **A lista é fechada.** Só esses códigos viram idioma; qualquer outra âncora
-   continua sendo endereço de passagem. Se fosse aberta, um `^ab` qualquer
-   trocaria a voz sem que nada no texto denunciasse o erro — e para esse erro
-   não há aviso, só uma frase saindo com a fonética errada.
+2. **A lista é fechada pela norma, não à mão.** Vira idioma o que tem
+   **exatamente três letras minúsculas, sozinhas, e existe na tabela oficial
+   da ISO 639-3** (a SIL publica a tabela inteira, uns 7.900 códigos, num
+   arquivo só). Nada se enumera um por um: o alemão não precisou de licença
+   para ser `^deu`, nem o siríaco precisará para ser `^syc`. Qualquer outra
+   coisa continua sendo endereço de passagem. Por isso **endereço leva sempre
+   número ou hífen** (`^sir-1-1`, `^job-3-2`, `^est-2-5`): `est` é estoniano e
+   `rom` é romani na ISO 639-3, e um `^est` solto trocaria a voz sem que nada
+   no texto denunciasse o erro. Três letras puras ficam reservadas ao idioma,
+   e o portão barra endereço que não as respeite.
 3. **Convive com o endereço.** A etiqueta sai primeiro; o `^gn-1-1` continua
    intacto para o extrator de âncoras.
 4. **É opcional.** Serve para o que a detecção não resolve: linha curta, verso
@@ -1103,11 +1115,21 @@ capítulos aramaicos de Daniel e de Esdras, dentro da Bíblia Hebraica, levam
 `^arc` versículo a versículo; um arquivo inteiro em aramaico (o Targum)
 declara `language: arc` e dispensa a etiqueta.
 
-`^deu` (2026-11-02, Διαφορεύς, no rolo de Anaxágoras) é o alemão que a edição
-crítica traz dentro do arquivo grego: Diels dá os B 20 e B 23 de Anaxágoras em
-tradução alemã. Sem a etiqueta, o parágrafo herda o `grc` da página e o leitor
-de tela lê alemão com fonética grega. Também aqui a etiqueta é a única fonte:
-não há detecção de alemão. O arquivo declara o trecho em `language_also`.
+`^deu` (2026-11-02, no rolo de Anaxágoras) é o caso típico do resto: o
+alemão que a edição crítica traz dentro do arquivo grego (Diels dá os B 20 e
+B 23 em tradução alemã). Sem a etiqueta, o parágrafo herda o `grc` da página e
+o leitor de tela lê alemão com fonética grega. Português, latim, alemão e
+inglês dividem o alfabeto: entre eles a etiqueta é a única fonte segura. O
+arquivo declara o trecho em `language_also`.
+
+**Declarar não é dar voz.** A etiqueta sempre vale: o `lang` do HTML sai
+certo para qualquer língua do mundo. A voz depende do aparelho, e língua sem
+voz é anunciada ou pulada (N78). O `lang` do HTML é BCP 47, que pede o código
+de duas letras quando ele existe (`deu` → `de`, `grc` fica `grc`); a própria
+tabela oficial traz essa coluna, então a conversão também não se escreve à
+mão. O português sai `pt-BR`, a região do projeto. A direção (`dir="rtl"`)
+vem da **escrita**, não da língua (N83): hebraico, árabe e siríaco correm da
+direita para a esquerda por serem essas escritas.
 
 No leitor (o motor), versículo numerado não vira de lado: em
 `**5** texto ^dn-2-5 ^arc` a etiqueta dá o `lang`, mas o parágrafo continua da
@@ -1116,11 +1138,21 @@ corre da direita para a esquerda é o trecho em letra quadrada. A linha solta
 (interlinear, verso) continua virando. O rolo desenha toda linha em letra
 quadrada da direita para a esquerda, com etiqueta ou sem ela.
 
-A lista de códigos tem de ser **idêntica** nas implementações — `CODIGOS`
-em `parser/motor/idioma.ts`, `ETIQUETAS_IDIOMA` em `gerador_rolo.py` e em
-`validar_corpus.py`.
-É o mesmo arquivo `.md` sendo lido nas duas superfícies; uma lista que diverge
-faz o app e o rolo lerem o mesmo texto em vozes diferentes.
+**Uma tabela só.** A tabela oficial entra no ecossistema uma vez, como o
+motor (N56), e as implementações a leem — `parser/motor/idioma.ts`,
+`gerador_rolo.py` e `validar_corpus.py`. É o mesmo arquivo `.md` sendo lido
+nas duas superfícies; três listas escritas à mão divergem, e o app e o rolo
+passam a ler o mesmo texto em vozes diferentes.
+
+**Estado (2026-11-03):** a norma está escrita; as implementações ainda usam a
+lista à mão (`por`, `eng`, `lat`, `grc`, `heb`, `arc`, `rus`, `deu`), e a troca
+pela tabela oficial está pendente. Ela leva junto dois desvios do padrão que o
+código tem hoje: `ell` é lido como `grc` (é o grego **moderno**, outra
+língua e outra voz), e há apelidos fora da ISO 639-3 (`pt`, `en`, `de`, `ger`,
+`la`, `he`, `ru`), que saem da etiqueta (o `language:` de arquivo antigo que
+ainda os traga continua sendo lido; o esquema já os recusa em arquivo novo).
+No acervo de 2026-11-03 as etiquetas em uso são
+`^arc` (268), `^deu` (2) e `^grc` (1): a troca não quebra nada.
 
 **N77 — Buscar `lang` no DOM sem limitar o escopo é um bug silencioso.** O
 documento tem `<html lang="pt-BR">`; um `closest('[lang]')` solto encontra
@@ -1309,6 +1341,70 @@ aleatório é exatamente o que o projeto existe para não reproduzir.
 **N52.** Métrica de acerto é registrada em silêncio e nunca exibida à criança
 como nota. Zero gate: qualquer resposta revela a correta com explicação, e
 nada trava o avanço. Progressão se dá por **participação**, jamais por acerto.
+
+---
+
+## Capítulo 15 — Os padrões de fora
+
+**N83 — Onde existe padrão estabelecido, segue-se o padrão; a norma cita o
+padrão e não enumera valores.** Decisão do Διαφορεύς, 2026-11-03: «tudo
+normatizado falando sempre a mesma língua», e estabelecido desde o começo. Lista
+escrita à mão (os códigos de idioma da N76 até a versão 7) é sinal de padrão
+esquecido. Antes de inventar um formato, procure o padrão; achando, ele entra
+nesta tabela.
+
+**Guardar no padrão, mostrar na língua de quem lê.** O arquivo guarda
+`2026-11-03`; o leitor brasileiro vê «3 de novembro de 2026», o americano,
+«Nov 3, 2026». Quem converte é a tela, nunca o dado. O inglês fica no dado
+(universalidade); o português fica na interface, que é onde as pessoas estão.
+
+| O quê | Padrão | Como fica | Situação |
+| --- | --- | --- | --- |
+| Língua, no arquivo | ISO 639-3 | `por`, `grc`, `arc`, `deu` | em vigor (N76) |
+| Língua, na web e na voz | BCP 47 | `pt-BR`, `grc`, `de` | em vigor; a conversão sai da tabela oficial (N76, pendente) |
+| Escrita (alfabeto) | ISO 15924 | `Grek`, `Hebr`, `Latn`, `Syrc` | a implementar: o código chama de «escrita» o que é língua |
+| Região | ISO 3166-1 | o `BR` de `pt-BR` | em vigor, só dentro do BCP 47 |
+| Data | ISO 8601 | `2026-11-03` | em vigor |
+| Hora | ISO 8601, em UTC | `2026-11-03T17:58:38Z` | em vigor para o que se grava daqui em diante |
+| Era | AEC / EC (em inglês, BCE / CE) | `2026 EC`, `c. 360 AEC` | só no que o Διαφορεύς escrever; arquivo antigo não muda |
+| Licença | SPDX | `CC-BY-SA-4.0` | em vigor (`public-domain` e `LicenseRef-…` como no esquema) |
+| Endereço de texto | CTS URN | `urn:cts:greekLit:tlg0059.tlg007…` | em vigor |
+| O acervo, como obra | DOI | `10.5281/zenodo.23068915` | em vigor |
+| Pré-socráticos | Diels-Kranz (Kranz, 5ª ed. em diante) | `dk: 59 B` | em vigor desde 2026-11-03 |
+| Página | a do fac-símile (N80) | `<!-- pa:pagina 451 -->` | em vigor |
+| Citação para gente | ABNT NBR 6023 | `cite_in`, «Como citar» | em vigor desde 2026-11-02 |
+| Texto Unicode | NFC | uma forma só para cada letra acentuada | proposta: o portão ainda não confere |
+| Pessoa e obra | Wikidata | `author_wikidata: Q…` | proposta: não há campo |
+| Front matter | inglês, inclusive a prosa | `scope`, `processing` em inglês | em vigor para arquivo novo; os antigos ficam |
+
+**Língua não é escrita.** São duas perguntas sobre o mesmo trecho: com que
+letras está escrito, e que idioma é. Uma escrita serve a várias línguas (a
+quadrada ao hebraico e ao aramaico; a latina ao latim, ao português, ao
+alemão); uma língua pode ter várias escritas (o grego transliterado, o
+aramaico em siríaco). A escrita a máquina **detecta** pela faixa Unicode, e
+ela decide direção e fonte. A língua alguém **declara** (cabeçalho ou
+etiqueta, N76), e ela decide voz, `lang`, hifenização e ordem alfabética.
+O BCP 47 junta as duas quando preciso: `grc-Latn` é grego antigo
+transliterado.
+
+**Era.** AEC/EC é o que o Διαφορεύς escreve; nenhum arquivo existente é
+alterado por isso. Se um dia uma data histórica tiver de ser lida por
+máquina (ordenar, linha do tempo), o padrão é o EDTF (ISO 8601-2), com uma
+armadilha: ele conta o ano zero, e 360 AEC se grava `-0359`.
+
+**NFC.** A mesma letra grega pode ser gravada junta ou em peças (α + espírito
++ acento + iota subscrito), idênticas na tela e diferentes para o computador:
+a busca falha, a contagem muda, a expressão regular erra (N79). O NFC escolhe
+a forma junta. Dois efeitos dele no grego, que são do Unicode e não defeito:
+o ponto e vírgula grego (U+037E) vira o `;` latino, e o agudo politônico
+(oxia, U+1F71) vira o do monotônico (tonos, U+03AC). Invisíveis na tela.
+
+**Wikidata.** Um número por pessoa e por obra: acaba a ambiguidade
+(Anaxágoras, Anaxagoras, Ἀναξαγόρας), o nome chega em todas as línguas do
+app sem ninguém escrevê-lo, e o número aponta para os outros catálogos
+(Biblioteca do Congresso, BnF, VIAF, TLG). Guarda-se só o número, nunca os
+dados copiados (o Wikidata é editável por qualquer um), e todo número se
+confere na fonte antes de gravar.
 
 ---
 
