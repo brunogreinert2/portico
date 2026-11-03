@@ -1075,7 +1075,7 @@ sair com sotaque brasileiro. Implementação de referência: `idiomaDoTexto` em
 `parser/motor/idioma.ts` (o motor do ecossistema; cada app
 guarda uma cópia carimbada em `src/motor/`).
 
-**N76 — A etiqueta de idioma: `^por`, `^eng`, `^lat`, `^grc`, `^heb`, `^arc`, `^rus`.**
+**N76 — A etiqueta de idioma: `^por`, `^eng`, `^lat`, `^grc`, `^heb`, `^arc`, `^rus`, `^deu`.**
 No fim da linha, mesma sintaxe da âncora de endereço que o corpus já usa:
 
 ```
@@ -1102,6 +1102,12 @@ aramaico usa a escrita do hebraico, e a faixa Unicode não separa os dois. Os
 capítulos aramaicos de Daniel e de Esdras, dentro da Bíblia Hebraica, levam
 `^arc` versículo a versículo; um arquivo inteiro em aramaico (o Targum)
 declara `language: arc` e dispensa a etiqueta.
+
+`^deu` (2026-11-02, Διαφορεύς, no rolo de Anaxágoras) é o alemão que a edição
+crítica traz dentro do arquivo grego: Diels dá os B 20 e B 23 de Anaxágoras em
+tradução alemã. Sem a etiqueta, o parágrafo herda o `grc` da página e o leitor
+de tela lê alemão com fonética grega. Também aqui a etiqueta é a única fonte:
+não há detecção de alemão. O arquivo declara o trecho em `language_also`.
 
 No leitor (o motor), versículo numerado não vira de lado: em
 `**5** texto ^dn-2-5 ^arc` a etiqueta dá o `lang`, mas o parágrafo continua da
