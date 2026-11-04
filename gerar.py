@@ -1160,19 +1160,17 @@ def andamento_publico_md(hoje: date) -> str:
     partes = ["# Em andamento", "",
               "O que está sendo feito no Pedra Angular agora. O registro do que já "
               "foi feito está no [Diário](diario.html).", ""]
-    for estado in ESTADOS:
-        grupo = sorted((f for f in fichas if f["estado"] == estado),
-                       key=lambda f: f["tocado_em"])
-        if not grupo:
-            continue
-        partes += [f"## {estado[0].upper() + estado[1:]}", ""]
-        for f in grupo:
-            partes += [f"### {f['frente']}", ""]
-            if f.get("nota"):
-                partes += [f["nota"], ""]
-            # so a data: "ontem" numa pagina estatica congela (teste de 2026-09-29)
-            partes += [f"*Última vez: {f['tocado_em']}.*", ""]
-    if not fichas:
+    # Uma lista só, do que falta (pedido do dono, 2026-11-04): o concluído vai
+    # para o Diário e não aparece aqui; sem grupos por estado e sem data.
+    # Ordem: o que anda primeiro, o parado no fim; dentro, o mais recente antes.
+    ativas = [f for f in fichas if f["estado"] != "concluído"]
+    ativas.sort(key=lambda f: f["tocado_em"], reverse=True)
+    ativas.sort(key=lambda f: f["estado"] == "parado")
+    for f in ativas:
+        partes += [f"## {f['frente']}", ""]
+        if f.get("nota"):
+            partes += [f["nota"], ""]
+    if not ativas:
         partes.append("Nada publicado aqui ainda.")
     return "\n".join(partes) + "\n"
 
