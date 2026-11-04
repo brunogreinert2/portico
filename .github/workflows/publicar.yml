@@ -1,0 +1,44 @@
+# Publica o Pórtico (o Diário, a norma, o andamento) a cada push na master
+# (2026-11-04). O Pórtico não tem site próprio: ele é montado dentro do deploy
+# do app-leitura. Este workflow confere os posts e manda o app se refazer.
+# Com o acervo igual, o deploy do app pula o portão e reaproveita os rolos:
+# o post fica no ar em 3 a 4 minutos.
+#
+# A chave DEPLOY_APP_LEITURA (Settings → Secrets → Actions) é um token do
+# GitHub do dono, só para o repositório app-leitura, com a permissão
+# «Actions: Read and write». Ela vence: quando vencer, este workflow falha com
+# o aviso, e o site continua como estava.
+name: Publicar o Pórtico
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+concurrency:
+  group: publicar
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Conferir os posts do Diário
+        run: python conferir_diario.py
+      - name: Refazer o site
+        env:
+          GH_TOKEN: ${{ secrets.DEPLOY_APP_LEITURA }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Falta a chave DEPLOY_APP_LEITURA nas Secrets deste repositório (ver o topo deste arquivo)."
+            exit 1
+          fi
+          if ! gh workflow run deploy.yml --repo brunogreinert2/app-leitura --ref master; then
+            echo "::error::O GitHub recusou a chave DEPLOY_APP_LEITURA: talvez tenha vencido. Crie outra (permissão Actions: Read and write, só no app-leitura) e troque a Secret."
+            exit 1
+          fi
+          echo "Deploy do app pedido: https://github.com/brunogreinert2/app-leitura/actions/workflows/deploy.yml"

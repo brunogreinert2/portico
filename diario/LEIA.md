@@ -20,5 +20,10 @@ Texto livre, em Markdown simples (parágrafos, **negrito**, *itálico*, links).
 assinatura é do Διαφορεύς — no Pórtico, ela importa mais do que qualquer outra
 coisa (decisão dele, 2026-10-13).
 
-Publicar: escrever o arquivo, `git commit`, `git push`. O site se refaz no
-próximo deploy do app. Este arquivo (`LEIA.md`) não entra na página.
+Publicar: escrever o arquivo e salvar no GitHub (commit e push daqui, ou
+direto no site: github.com/brunogreinert2/portico → pasta `diario` → «Add
+file» → «Create new file», e «Commit changes»). O workflow `publicar.yml`
+confere o post (`conferir_diario.py`) e manda o site se refazer: em 3 a 4
+minutos está no ar. Post com erro (nome fora do padrão, data que não existe,
+arquivo vazio) não sobe, e o site continua como estava; o erro aparece em
+Actions, no GitHub do portico. Este arquivo (`LEIA.md`) não entra na página.
