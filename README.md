@@ -86,6 +86,14 @@ deploy do app-leitura (que clona este repositório):
 python gerar.py --publico <pasta> --app-leitura <app-leitura>
 ```
 
+**Publicar é dar push aqui** (desde 2026-11-04). O workflow
+`.github/workflows/publicar.yml` confere os posts do Diário
+(`conferir_diario.py`) e dispara o deploy do app-leitura com a Secret
+`DEPLOY_APP_LEITURA` (token do dono, só o app-leitura, Actions: Read and
+write; vence, e aí o run falha dizendo isso). Com o acervo igual, o deploy
+pula o portão e reaproveita os rolos: o site muda em uns 2 minutos. Vale para
+tudo deste repositório (Diário, normas, andamento), não só para o Diário.
+
 Seis páginas — Pórtico, Em andamento, Diário, Contribuir, Normas, As peças —,
 cada uma com a versão `.md` ao lado e nenhuma acima de 80 KB de texto: quem
 manda o link a uma IA sabe que ela lê a página inteira. Mais `feed.xml` (o
