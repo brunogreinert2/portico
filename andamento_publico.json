@@ -20,6 +20,18 @@
    "nota": "Os fragmentos pré-socráticos, Isócrates completo, os Padres Apostólicos, Epicuro, Sexto Empírico e Simplício já estão no acervo."
   },
   {
+   "frente": "Garimpo de traduções em periódicos e repositórios universitários",
+   "estado": "em curso",
+   "tocado_em": "2026-11-04",
+   "nota": "Traduções de autores antigos que as revistas universitárias brasileiras publicam com licença aberta: 24 revistas e repositórios levantados, a licença conferida na página de cada artigo, e as traduções entrando no acervo em lotes, ao lado do original."
+  },
+  {
+   "frente": "LITERATURA — os clássicos gregos (Homero, Hesíodo, Hinos Homéricos)",
+   "estado": "em curso",
+   "tocado_em": "2026-11-04",
+   "nota": "Homero, Hesíodo e os 33 Hinos Homéricos entraram na prateleira Literatura no grego do Perseus, cada obra com a tradução inglesa ao lado (Murray e Evelyn-White), e agora chegam em português, a começar pelos 26 Hinos de Carlos Leonardo Bonturim Antunes, verso a verso com o grego e em interlinear."
+  },
+  {
    "frente": "Marcgrave — Historia Naturalis Brasiliae (1648)",
    "estado": "parado",
    "tocado_em": "2026-09-16",
@@ -30,6 +42,12 @@
    "estado": "parado",
    "tocado_em": "2026-07-21",
    "nota": "O servidor que deixa qualquer IA buscar e ler no acervo: diagnosticar as falhas intermitentes."
+  },
+  {
+   "frente": "Odorico Mendes — a Ilíada e a Odisseia em português, pelo OCR",
+   "estado": "esperando Diaphoreus",
+   "tocado_em": "2026-11-04",
+   "nota": "Promessa do Διαφορεύς: a Ilíada (Rio de Janeiro, 1874) e a Odisseia (Rio de Janeiro, 1928) de Manuel Odorico Mendes, o maranhense que primeiro pôs Homero inteiro em português, vão entrar no acervo pelo OCR dos fac-símiles, com a ortografia dos livros e ao lado do grego, por respeito a ele e à nossa língua."
   },
   {
    "frente": "Onda inglesa 1 — o inglês ao lado do grego",
@@ -60,6 +78,12 @@
    "estado": "em curso",
    "tocado_em": "2026-10-15",
    "nota": "Estão no acervo os três tomos do Manual do Cidadão em um Governo Representativo (Paris, 1834) e a tradução das Categorias de Aristóteles (Rio de Janeiro, 1814), com a ortografia das edições. Em preparo: as Prelecções Philosóphicas (OCR feito, falta revisar e formatar). Faltam os índices alfabéticos e os mapas do Tomo III do Manual, e a edição bilíngue das Categorias."
+  },
+  {
+   "frente": "Tradutores brasileiros — resgatar as traduções antigas dos cantos escuros da internet",
+   "estado": "em curso",
+   "tocado_em": "2026-11-04",
+   "nota": "Resgatar as traduções antigas feitas por brasileiros, ou ligadas ao Brasil, que hoje só existem como scan espalhado pela internet: Odorico Mendes, Nísia Floresta — «De Vossa Patricia sincera, N. F. B. A.», como ela assina os Direitos das mulheres e injustiça dos homens —, entre outros, cada uma na ortografia do livro e ao lado do original."
   }
  ]
 }
