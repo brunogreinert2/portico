@@ -17,7 +17,7 @@
    "frente": "LITERATURA — os clássicos gregos (Homero, Hesíodo, Hinos Homéricos)",
    "estado": "em curso",
    "tocado_em": "2026-11-04",
-   "nota": "Falta o português. A Ilíada (Rio de Janeiro, 1874) e a Odisseia (Rio de Janeiro, 1928) de Manuel Odorico Mendes, o maranhense que primeiro pôs Homero inteiro em português, vão entrar no acervo pelo OCR dos fac-símiles, com a ortografia dos livros e ao lado do grego, por respeito a ele e à nossa língua. Depois, as outras traduções de Homero e Hesíodo que as revistas universitárias publicaram com licença aberta."
+   "nota": "Falta Homero em português. A Ilíada (Rio de Janeiro, 1874) e a Odisseia (Rio de Janeiro, 1928) de Manuel Odorico Mendes, o maranhense que primeiro pôs Homero inteiro em português, vão entrar no acervo pelo OCR dos fac-símiles, com a ortografia dos livros e ao lado do grego, por respeito a ele e à nossa língua. Depois, as outras traduções de Homero e Hesíodo que as revistas universitárias publicaram com licença aberta."
   },
   {
    "frente": "Marcgrave — Historia Naturalis Brasiliae (1648)",
@@ -28,8 +28,8 @@
   {
    "frente": "Servidor MCP do Pedra Angular (Render)",
    "estado": "parado",
-   "tocado_em": "2026-07-21",
-   "nota": "Diagnóstico pendente."
+   "tocado_em": "2026-11-13",
+   "nota": "Diagnóstico feito em 2026-11-13: três das cinco ferramentas respondem bem; a busca por palavra esgota o tempo, e a leitura de um trecho pelo id da obra devolve a obra inteira. Falta o conserto."
   },
   {
    "frente": "Silvestre Pinheiro Ferreira — Manual do Cidadão e Prelecções Philosóphicas",
@@ -40,8 +40,8 @@
   {
    "frente": "Tradutores brasileiros — resgatar as traduções antigas dos cantos escuros da internet",
    "estado": "em curso",
-   "tocado_em": "2026-11-04",
-   "nota": "Resgatar as traduções antigas feitas por brasileiros, ou ligadas ao Brasil, que hoje só existem como scan espalhado pela internet. Entre elas, as de Odorico Mendes e os Direitos das mulheres e injustiça dos homens de Nísia Floresta, que assina «De Vossa Patricia sincera, N. F. B. A.». Cada uma na ortografia do livro e, quando houver, ao lado do original."
+   "tocado_em": "2026-11-13",
+   "nota": "Resgatar as traduções antigas feitas por brasileiros, ou ligadas ao Brasil, que hoje só existem como scan espalhado pela internet. Entre elas, as de Odorico Mendes. Cada uma na ortografia do livro e, quando houver, ao lado do original."
   }
  ]
 }
