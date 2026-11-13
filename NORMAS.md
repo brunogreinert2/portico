@@ -1376,6 +1376,7 @@ nesta tabela.
 | Texto Unicode | NFC | uma forma só para cada letra acentuada | proposta: o portão ainda não confere |
 | Pessoa e obra | Wikidata | `author_wikidata: Q…` | proposta: não há campo |
 | Front matter | inglês, inclusive a prosa | `scope`, `processing` em inglês | em vigor para arquivo novo; os antigos ficam |
+| Dispositivo de lei | LexML Brasil, Parte 3, tabela 3 | `^art5_cpt_inc2`, `^art8-1_par1` | rascunho (N84, 2026-11-13) |
 
 **Língua não é escrita.** São duas perguntas sobre o mesmo trecho: com que
 letras está escrito, e que idioma é. Uma escrita serve a várias línguas (a
@@ -1405,6 +1406,89 @@ app sem ninguém escrevê-lo, e o número aponta para os outros catálogos
 (Biblioteca do Congresso, BnF, VIAF, TLG). Guarda-se só o número, nunca os
 dados copiados (o Wikidata é editável por qualquer um), e todo número se
 confere na fonte antes de gravar.
+
+**N84 — Texto jurídico se cita pelo endereço do LexML.** *Rascunho de
+2026-11-13, à espera do ok do Διαφορεύς.* Lei, tratado, convenção e
+declaração — a prateleira ALICERCES: a DUDH, a Declaração de Salamanca, o CDC,
+a CRPD, a LBI, o Tratado de Marraqueche e, depois, as leis brasileiras — se
+citam por dispositivo. O endereço do dispositivo é o do **LexML Brasil, Parte 3
+(LexML XML Schema), tabela 3**, o padrão do Senado, da Câmara e do Planalto
+(N83). Decisão do Διαφορεύς, 2026-11-13: a âncora no fim do parágrafo, «do
+mesmo jeito que a Bíblia faz com `^gn-1-5`».
+
+No `.md`, cada dispositivo é um parágrafo: o rótulo do impresso em negrito no
+começo, a âncora LexML no fim.
+
+```
+## Artigo 2
+
+**1.** Todo ser humano tem capacidade… ^art2_par1
+
+**Art. 5º** Todos são iguais perante a lei… ^art5_cpt
+
+**§ 1º** As normas definidoras… ^art5_par1
+
+**II –** ninguém será obrigado… ^art5_cpt_inc2
+```
+
+| Dispositivo | No impresso | Endereço |
+| --- | --- | --- |
+| Artigo | Art. 5º | `art5` |
+| Caput | Art. 5º Todos são iguais… | `art5_cpt` |
+| Parágrafo | § 2º do art. 20 | `art20_par2` |
+| Parágrafo único | parágrafo único do art. 8º-A | `art8-1_par1` |
+| Inciso | inciso III do art. 8º | `art8_cpt_inc3` |
+| Inciso de parágrafo | inciso II do § 2º do art. 20 | `art20_par2_inc2` |
+| Alínea | alínea «a» do inciso IX do parágrafo único do art. 3º-A-A | `art3-1-1_par1_inc9_ali1` |
+| Item | item 1 da alínea «b» do inciso I do art. 39 | `art39_cpt_inc1_ali2_ite1` |
+| Partes fora dos artigos | epígrafe, ementa, preâmbulo, local e data, fecho | `epigrafe`, `ementa`, `preambulo`, `localdata`, `fecho` |
+
+Seis regras:
+
+1. **O endereço é o do LexML, sem tradução nem invenção.** O `_` separa os
+   níveis; o `-` marca o acrescido (art. 8º-A = `art8-1`, 12-B = `art12-2`);
+   a letra vira número (alínea «a» = `ali1`); o parágrafo único é `par1`; o
+   inciso pende do caput (`_cpt_inc3`) ou do parágrafo (`_par2_inc2`), nunca
+   direto do artigo. Na dúvida, a tabela do LexML decide, não o costume.
+2. **Uma âncora por parágrafo, a do nível mais fundo que ele contém.** O
+   artigo de um parágrafo só é o caput (`^art1_cpt`); o inciso tem a sua, e
+   não a do caput. O cabeçalho (`## Artigo 5`) não leva âncora: o app ainda
+   não a tira do título. O link do artigo inteiro é o do caput, onde ele
+   começa.
+3. **O rótulo é o do impresso, em negrito, abrindo o parágrafo:** `Art. 5º`,
+   `Art. 12-B`, `Artigo 1`, `§ 1º`, `Parágrafo único.`, `II –` (ou `II -`),
+   `a)`, `1.`. É ele que o app e o rolo tornam tocável — um toque copia o link
+   da passagem —, como o `**5**` do versículo. O mesmo negrito no meio da
+   frase continua sendo ênfase. Caput sem rótulo próprio (o artigo que é
+   cabeçalho), ementa e preâmbulo não precisam de rótulo: a âncora basta.
+4. **Endereço não é idioma (N76).** O `_` nunca entra numa etiqueta; três
+   letras puras continuam reservadas ao idioma, e todo endereço de dispositivo
+   leva número. As cinco partes nomeadas (`epigrafe`, `ementa`, `preambulo`,
+   `localdata`, `fecho`) são a única exceção ao «número ou hífen»: são nomes do
+   próprio padrão e têm mais de três letras, então nunca colidem com um código
+   ISO 639-3 (três letras) nem ISO 639-1 (duas).
+5. **Endereço publicado não muda quando a lei muda (LEI 6).** A lei
+   brasileira já não renumera artigo (LC 95/1998, art. 12): o acrescido ganha
+   letra (`-1` no endereço), o revogado guarda o número.
+   No acervo, o revogado fica no texto com rótulo e âncora
+   (`**IV –** (Revogado). ^art5_cpt_inc4`).
+6. **O front matter diz que texto é este:** `reference_system: lexml`;
+   `text_version: original` (o texto como foi publicado ou adotado) ou
+   `compiled` (o compilado, com as alterações incorporadas: o vigente, o
+   «texto compilado» do Planalto); e `accessed: AAAA-MM-DD`, o dia da consulta
+   à fonte (N83) — indispensável no compilado, que muda com a lei, e o
+   «Acesso em:» da ABNT.
+
+O LexML prevê ainda o dispositivo genérico (`dpgN`) e o dispositivo citado
+numa alteração, entre aspas (`art14_cpt_asp1_art4_cpt_inc3`): o motor os aceita
+(são letras, números, `_` e `-`), e o uso fica para quando um texto os pedir.
+
+**Estado hoje (2026-11-13):** o motor (`ANCHOR_RE`, `ROTULO_DISPOSITIVO_RE`
+em `parser/motor/remarkBlockAnchors.ts`), a busca do app, o rolo
+(`RX_ANCORA`, `RX_ROTULO_DISPOSITIVO`) e o esquema (`lexml`, `text_version`,
+`accessed`) já leem a forma; o validador e o Gerador já aceitavam o `_`. O
+Corretor e o Conversor ainda realçam a âncora sem o `_`. Primeiro texto: a
+DUDH (amostra da LEVA_1, ainda fora do acervo).
 
 ---
 
